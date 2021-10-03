@@ -1,0 +1,80 @@
+.alter Class0_Sample0 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_0'
+
+.alter Class1_Sample0 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_0'
+
+.alter Class0_Sample1 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_1'
+
+.alter Class1_Sample1 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_1'
+
+.alter Class0_Sample2 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_2'
+
+.alter Class1_Sample2 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_2'
+
+.alter Class0_Sample3 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_3'
+
+.alter Class1_Sample3 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_3'
+
+.alter Class0_Sample4 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_4'
+
+.alter Class1_Sample4 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_4'
+
+.alter Class0_Sample5 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_5'
+
+.alter Class1_Sample5 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_5'
+
+.alter Class0_Sample6 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_6'
+
+.alter Class1_Sample6 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_6'
+
+.alter Class0_Sample7 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_7'
+
+.alter Class1_Sample7 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_7'
+
+.alter Class0_Sample8 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_8'
+
+.alter Class1_Sample8 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_8'
+
+.alter Class0_Sample9 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class1/Sample_9'
+
+.alter Class1_Sample9 
+.include 'Netlist/Power.cir' 
+.include 'Python/Side_Channel_Tests/TESTs/KnownKEY_UnkownIP/Group2/Class2/Sample_9'
+

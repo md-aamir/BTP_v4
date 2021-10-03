@@ -1,0 +1,7 @@
+rm *.errm.log
+rm *.swd
+rm *.wdb
+rm *.id
+rm *.chi
+rm *.alt
+rm *.aex

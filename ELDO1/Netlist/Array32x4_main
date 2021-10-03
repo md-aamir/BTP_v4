@@ -1,0 +1,1439 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  ChaCha20
+* Top Cell Name: Array128_4
+* View Name:     schematic
+* Netlisted on:  Jan 17 15:13:47 2021
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.RESVAL
+*.CAPVAL
+*.DIOPERI
+*.DIOAREA
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+
+
+************************************************************************
+* Library Name: SRAM_cell_10T
+* Cell Name:    sram_10t
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT sram_10t RBL RBLB RWL RWLB WBL WBLB gnd latch latch_bar vdd wl
+*.PININFO RWL:I RWLB:I WBL:I WBLB:I gnd:I vdd:I wl:I latch:O latch_bar:O RBL:B 
+*.PININFO RBLB:B
+XM1 latch_bar latch vdd vdd plvtlp w=0.135 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 latch latch_bar vdd vdd plvtlp w=0.135 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM10 net35 latch gnd gnd nlvtlp w=0.41 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM9 RBLB RWLB net35 net35 nlvtlp w=0.41 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM8 net36 latch_bar gnd gnd nlvtlp w=0.41 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM7 RBL RWL net36 net36 nlvtlp w=0.41 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM5 WBLB wl latch_bar latch_bar nlvtlp w=0.27 l=0.09 nfing=1 sense=0 ngcon=1 
++ m=1 accurateFlow=0
+XM4 latch wl WBL WBL nlvtlp w=0.27 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM3 latch_bar latch gnd gnd nlvtlp w=0.405 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM6 latch latch_bar gnd gnd nlvtlp w=0.405 l=0.09 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: framework
+* Cell Name:    inv
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT inv IN INBar Vdd gnd
+*.PININFO IN:I Vdd:I gnd:I INBar:O
+XM0 INBar IN Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM1 INBar IN gnd gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: framework
+* Cell Name:    write_driver1
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT write_driver1 OUT OUTB Vdd data gnd w_en
+*.PININFO Vdd:I data:I gnd:I w_en:I OUT:O OUTB:O
+XM1 OUT w_en net06 net06 nlvtlp w=1.03 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 OUTB w_en net12 net12 nlvtlp w=1.03 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XI2 net12 net06 Vdd gnd inv
+XI1 data net12 Vdd gnd inv
+.ENDS
+
+************************************************************************
+* Library Name: framework
+* Cell Name:    mux4_1_test
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT mux4_1_test A0 A1 A2 IN00 IN01 IN10 IN11 IN_compute OE01 OE10 OE11 Out 
++ Vdd gnd
+*.PININFO A0:I A1:I A2:I IN00:I IN01:I IN10:I IN11:I IN_compute:I OE01:I 
+*.PININFO OE10:I OE11:I Vdd:I gnd:I Out:O
+XM29 net074 A2 OE01 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM25 net076 A2 IN10 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM22 net078 A2bar IN_compute gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 
++ m=1 accurateFlow=0
+XM40 A2bar A2 gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM27 net072 A2 OE11 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM38 A0bar A0 gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM37 Out A0bar net090 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM35 Out A0 net088 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM34 net090 A1bar net078 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM33 net090 A1 net076 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM32 net088 A1 net072 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM31 net088 A1bar net074 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM18 A1bar A1 gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM24 net078 A2 IN00 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM26 net076 A2bar IN01 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM30 net074 A2bar IN11 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM28 net072 A2bar OE10 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM41 A2bar A2 Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM36 net090 A0 Out Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM19 net088 A0bar Out Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM17 net078 A1 net090 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM16 net076 A1bar net090 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM15 net072 A1bar net088 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM14 net074 A1 net088 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM13 IN11 A2 net074 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM5 A1bar A1 Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM7 IN00 A2bar net078 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM23 IN_compute A2 net078 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM9 IN01 A2 net076 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM10 OE11 A2bar net072 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM11 OE10 A2 net072 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM39 A0bar A0 Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM8 IN10 A2bar net076 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM12 OE01 A2bar net074 Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+CC6 IN01 gnd 2f
+CC7 IN10 gnd 2f
+CC8 OE11 gnd 2f
+CC9 OE10 gnd 2f
+CC10 OE01 gnd 2f
+CC11 IN11 gnd 2f
+CC3 IN00 gnd 2f
+CC5 IN_compute gnd 2f
+.ENDS
+
+************************************************************************
+* Library Name: Single_Ended_Sense_Amplifier
+* Cell Name:    NOT
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT NOT Vdd Vin Vout gnd
+*.PININFO Vdd:I Vin:I gnd:I Vout:O
+XM7 Vout Vin gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM6 Vout Vin Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: Carry_Select_Adder
+* Cell Name:    MUX2_1_Real
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT MUX2_1_Real A0 A1 S Vdd Vout gnd
+*.PININFO A0:I A1:I S:I Vdd:I gnd:I Vout:O
+XM5 net19 S gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM1 A0 net19 Vout Vout nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM4 A1 S Vout Vout nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 net19 S Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM3 Vout S A0 A0 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 Vout net19 A1 A1 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+CC4 A0 gnd 500.0a
+CC3 S gnd 500.0a
+CC0 A1 gnd 500.0a
+.ENDS
+
+************************************************************************
+* Library Name: Sense_amp_inverter
+* Cell Name:    inverter_wLATCH
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT inverter_wLATCH BL SAen Vdd Vout gnd
+*.PININFO BL:I SAen:I Vdd:I gnd:I Vout:O
+XI15 Vdd Vout net07 gnd NOT
+XI8 Vdd net08 Vout gnd NOT
+XI18 net07 net06 SAen Vdd net08 gnd MUX2_1_Real
+XM3 net06 BL Vdd Vdd plvtlp w=1.35 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 net06 BL gnd gnd nhvtlp w=0.135 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: ChaCha20
+* Cell Name:    NOT_schematic
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT NOT_schematic Vdd Vin Vout gnd
+*.PININFO Vdd:I Vin:I gnd:I Vout:O
+XM7 Vout Vin gnd gnd nlvtlp w=0.27 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM6 Vout Vin Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: framework
+* Cell Name:    decoder2_4_chota_2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT decoder2_4_chota_2 A0 A1 EN Vdd WL0 WL1 WL2 WL3 clk gnd
+*.PININFO A0:I A1:I EN:I Vdd:I clk:I gnd:I WL0:O WL1:O WL2:O WL3:O
+XM28 net029 A1 gnd gnd nlvtlp w=0.27 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM24 net022 EN gnd gnd nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM25 net039 EN gnd gnd nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM29 net010 A0 gnd gnd nlvtlp w=0.27 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM26 net040 EN gnd gnd nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM27 net020 EN gnd gnd nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM30 net043 clk gnd gnd nlvtlp w=0.27 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM15 net023 A1 net30 net30 nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM14 net18 A0 net039 net039 nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM13 net035 net029 net019 net019 nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 
++ m=1 accurateFlow=0
+XM12 net019 net010 net022 net022 nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 
++ m=1 accurateFlow=0
+XM3 net42 net029 net18 net18 nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 net30 net010 net020 net020 nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 
++ m=1 accurateFlow=0
+XM1 net021 A1 net20 net20 nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 net20 A0 net040 net040 nlvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM9 net029 A1 Vdd Vdd plvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM31 net043 clk Vdd Vdd plvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM10 net010 A0 Vdd Vdd plvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM11 Vdd net043 net021 net021 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM6 Vdd net043 net035 net035 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM4 Vdd net043 net023 net023 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM5 Vdd net043 net42 net42 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XI14 Vdd net021 WL3 gnd NOT_schematic
+XI13 Vdd net023 WL2 gnd NOT_schematic
+XI12 Vdd net42 WL1 gnd NOT_schematic
+XI11 Vdd net035 WL0 gnd NOT_schematic
+.ENDS
+
+************************************************************************
+* Library Name: In_Memory_Add
+* Cell Name:    nor
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT nor A B Out Vdd gnd
+*.PININFO A:I B:I Vdd:I gnd:I Out:O
+XM3 Out B gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 Out A gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM1 Out B net012 net012 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 net012 A Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: ChaCha20
+* Cell Name:    and
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT and A B Out Vdd gnd
+*.PININFO A:I B:I Vdd:I gnd:I Out:O
+XM5 Out net29 gnd gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 net30 A gnd gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM1 net29 B net30 gnd nlvtlp w=0.405 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 net29 A Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM3 net29 B Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM4 Out net29 Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: In_Memory_Add
+* Cell Name:    or
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT or A B Out Vdd gnd
+*.PININFO A:I B:I Vdd:I gnd:I Out:O
+XM5 Out net14 gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM3 net14 B gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 net14 A gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM4 Out net14 Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM1 net14 B net015 net015 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 net015 A Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: In_Memory_Add
+* Cell Name:    xor
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT xor A B Out Vdd gnd
+*.PININFO A:I B:I Vdd:I gnd:I Out:O
+XM12 net24 B gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM3 net21 net13 gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 Out net24 net21 net21 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM1 net15 B gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 Out A net15 net15 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM8 net13 A gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM13 net24 B Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM9 net13 A Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM7 Out net24 net22 net22 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM6 net22 A Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM5 Out B net16 net16 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM4 net16 net13 Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: Carry_Select_Adder
+* Cell Name:    CSA
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT CSA A_xor_B AandB AnorB Cin Cout Sum Tcalc Vdd gnd
+*.PININFO AandB:I AnorB:I Cin:I Tcalc:I Vdd:I gnd:I A_xor_B:O Cout:O Sum:O
+XI0 AnorB AandB A_xor_B Vdd gnd nor
+XI7 AandB Tcalc net08 Vdd gnd and
+XI1 A_xor_B net08 net17 Vdd gnd or
+XI4 A_xor_B Cin Sum Vdd gnd xor
+XI6 net08 net17 Cin Vdd Cout gnd MUX2_1_Real
+.ENDS
+
+************************************************************************
+* Library Name: BitCell
+* Cell Name:    clocked_or
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT clocked_or A B Out Vdd clk gnd
+*.PININFO A:I B:I Vdd:I clk:I gnd:I Out:O
+XM10 net14 A net022 gnd nlvtlp w=0.27 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM5 Out net14 gnd gnd nlvtlp w=0.27 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM3 net14 B net022 gnd nlvtlp w=0.27 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM7 net022 clk gnd gnd nlvtlp w=0.27 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM4 Out net14 Vdd Vdd plvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 net14 clk Vdd Vdd plvtlp w=0.54 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+.ENDS
+
+************************************************************************
+* Library Name: BitCell
+* Cell Name:    Clocked_decoder_read
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT Clocked_decoder_read A0 A1 EN Vdd WL0 WL1 WL2 WL3 clk gnd row0_onB 
++ row2_onB
+*.PININFO A0:I A1:I EN:I Vdd:I clk:I gnd:I row0_onB:I row2_onB:I WL0:O WL1:O 
+*.PININFO WL2:O WL3:O
+XM27 net025 EN gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM24 net027 EN gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM25 net026 EN gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM26 net024 EN gnd gnd nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM15 net046 A1 net30 net30 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM14 net18 A0 net026 net026 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM13 net050 net029 net019 net019 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 
++ m=1 accurateFlow=0
+XM12 net019 net010 net027 net027 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 
++ m=1 accurateFlow=0
+XM3 net047 net029 net18 net18 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM2 net30 net010 net025 net025 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM1 net036 A1 net20 net20 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM0 net20 A0 net024 net024 nlvtlp w=0.4 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM11 Vdd clk net036 net036 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM6 Vdd clk net050 net050 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM4 Vdd clk net046 net046 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM5 Vdd clk net047 net047 plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XI23 Vdd A0 net010 gnd NOT
+XI22 Vdd A1 net029 gnd NOT
+XI14 Vdd net036 WL3 gnd NOT_schematic
+XI13 Vdd net046 net048 gnd NOT_schematic
+XI12 Vdd net047 WL1 gnd NOT_schematic
+XI11 Vdd net050 net049 gnd NOT_schematic
+XI20 net048 row2_onB WL2 Vdd clk gnd clocked_or
+XI21 net049 row0_onB WL0 Vdd clk gnd clocked_or
+.ENDS
+
+************************************************************************
+* Library Name: ChaCha20
+* Cell Name:    Array128_4
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT Array128_4 Calc_en Cout IN0 IN1 IN2 IN3 IN4 IN5 IN6 IN7 IN8 IN9 IN10 
++ IN11 IN12 IN13 IN14 IN15 IN16 IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 IN25 
++ IN26 IN27 IN28 IN29 IN30 IN31 IN32 IN33 IN34 IN35 IN36 IN37 IN38 IN39 IN40 
++ IN41 IN42 IN43 IN44 IN45 IN46 IN47 IN48 IN49 IN50 IN51 IN52 IN53 IN54 IN55 
++ IN56 IN57 IN58 IN59 IN60 IN61 IN62 IN63 IN64 IN65 IN66 IN67 IN68 IN69 IN70 
++ IN71 IN72 IN73 IN74 IN75 IN76 IN77 IN78 IN79 IN80 IN81 IN82 IN83 IN84 IN85 
++ IN86 IN87 IN88 IN89 IN90 IN91 IN92 IN93 IN94 IN95 IN96 IN97 IN98 IN99 IN100 
++ IN101 IN102 IN103 IN104 IN105 IN106 IN107 IN108 IN109 IN110 IN111 IN112 
++ IN113 IN114 IN115 IN116 IN117 IN118 IN119 IN120 IN121 IN122 IN123 IN124 
++ IN125 IN126 IN127 MUX_SEL0 MUX_SEL1 MUX_SEL2 PreCh RBL0 RBL1 RBLB0 RBLB1 
++ RWL0 RWL1 RWL_en Row0sel Row1sel Row2sel Row3sel SAen Sout0 SoutB0 Vdd WBL0 
++ WBL1 WBLB0 WBLB1 WL0_sel WL1_sel WL2_sel WL3_sel WWL0 WWL1 WWL_en Wrdv_in0 
++ clk gnd mem0_0 mem0_1 mem0_2 mem0_3 mem0_4 mem0_5 mem0_6 mem0_7 mem0_8 
++ mem0_9 mem0_10 mem0_11 mem0_12 mem0_13 mem0_14 mem0_15 mem0_16 mem0_17 
++ mem0_18 mem0_19 mem0_20 mem0_21 mem0_22 mem0_23 mem0_24 mem0_25 mem0_26 
++ mem0_27 mem0_28 mem0_29 mem0_30 mem0_31 mem1_0 mem1_1 mem1_2 mem1_3 mem1_4 
++ mem1_5 mem1_6 mem1_7 mem1_8 mem1_9 mem1_10 mem1_11 mem1_12 mem1_13 mem1_14 
++ mem1_15 mem1_16 mem1_17 mem1_18 mem1_19 mem1_20 mem1_21 mem1_22 mem1_23 
++ mem1_24 mem1_25 mem1_26 mem1_27 mem1_28 mem1_29 mem1_30 mem1_31 mem2_0 
++ mem2_1 mem2_2 mem2_3 mem2_4 mem2_5 mem2_6 mem2_7 mem2_8 mem2_9 mem2_10 
++ mem2_11 mem2_12 mem2_13 mem2_14 mem2_15 mem2_16 mem2_17 mem2_18 mem2_19 
++ mem2_20 mem2_21 mem2_22 mem2_23 mem2_24 mem2_25 mem2_26 mem2_27 mem2_28 
++ mem2_29 mem2_30 mem2_31 mem3_0 mem3_1 mem3_2 mem3_3 mem3_4 mem3_5 mem3_6 
++ mem3_7 mem3_8 mem3_9 mem3_10 mem3_11 mem3_12 mem3_13 mem3_14 mem3_15 mem3_16 
++ mem3_17 mem3_18 mem3_19 mem3_20 mem3_21 mem3_22 mem3_23 mem3_24 mem3_25 
++ mem3_26 mem3_27 mem3_28 mem3_29 mem3_30 mem3_31 memB0_0 memB0_1 memB0_2 
++ memB0_3 memB0_4 memB0_5 memB0_6 memB0_7 memB0_8 memB0_9 memB0_10 memB0_11 
++ memB0_12 memB0_13 memB0_14 memB0_15 memB0_16 memB0_17 memB0_18 memB0_19 
++ memB0_20 memB0_21 memB0_22 memB0_23 memB0_24 memB0_25 memB0_26 memB0_27 
++ memB0_28 memB0_29 memB0_30 memB0_31 memB1_0 memB1_1 memB1_2 memB1_3 memB1_4 
++ memB1_5 memB1_6 memB1_7 memB1_8 memB1_9 memB1_10 memB1_11 memB1_12 memB1_13 
++ memB1_14 memB1_15 memB1_16 memB1_17 memB1_18 memB1_19 memB1_20 memB1_21 
++ memB1_22 memB1_23 memB1_24 memB1_25 memB1_26 memB1_27 memB1_28 memB1_29 
++ memB1_30 memB1_31 memB2_0 memB2_1 memB2_2 memB2_3 memB2_4 memB2_5 memB2_6 
++ memB2_7 memB2_8 memB2_9 memB2_10 memB2_11 memB2_12 memB2_13 memB2_14 
++ memB2_15 memB2_16 memB2_17 memB2_18 memB2_19 memB2_20 memB2_21 memB2_22 
++ memB2_23 memB2_24 memB2_25 memB2_26 memB2_27 memB2_28 memB2_29 memB2_30 
++ memB2_31 memB3_0 memB3_1 memB3_2 memB3_3 memB3_4 memB3_5 memB3_6 memB3_7 
++ memB3_8 memB3_9 memB3_10 memB3_11 memB3_12 memB3_13 memB3_14 memB3_15 
++ memB3_16 memB3_17 memB3_18 memB3_19 memB3_20 memB3_21 memB3_22 memB3_23 
++ memB3_24 memB3_25 memB3_26 memB3_27 memB3_28 memB3_29 memB3_30 memB3_31 
++ row0_rwl row2_rwl w_en wr_en0 write1
+*.PININFO Calc_en:I MUX_SEL0:I MUX_SEL1:I MUX_SEL2:I PreCh:I RWL0:I RWL1:I 
+*.PININFO RWL_en:I SAen:I Vdd:I WWL0:I WWL1:I WWL_en:I clk:I gnd:I row0_rwl:I 
+*.PININFO row2_rwl:I w_en:I Cout:O mem0_0:O mem0_1:O mem0_2:O mem0_3:O 
+*.PININFO mem0_4:O mem0_5:O mem0_6:O mem0_7:O mem0_8:O mem0_9:O mem0_10:O 
+*.PININFO mem0_11:O mem0_12:O mem0_13:O mem0_14:O mem0_15:O mem0_16:O 
+*.PININFO mem0_17:O mem0_18:O mem0_19:O mem0_20:O mem0_21:O mem0_22:O 
+*.PININFO mem0_23:O mem0_24:O mem0_25:O mem0_26:O mem0_27:O mem0_28:O 
+*.PININFO mem0_29:O mem0_30:O mem0_31:O mem1_0:O mem1_1:O mem1_2:O mem1_3:O 
+*.PININFO mem1_4:O mem1_5:O mem1_6:O mem1_7:O mem1_8:O mem1_9:O mem1_10:O 
+*.PININFO mem1_11:O mem1_12:O mem1_13:O mem1_14:O mem1_15:O mem1_16:O 
+*.PININFO mem1_17:O mem1_18:O mem1_19:O mem1_20:O mem1_21:O mem1_22:O 
+*.PININFO mem1_23:O mem1_24:O mem1_25:O mem1_26:O mem1_27:O mem1_28:O 
+*.PININFO mem1_29:O mem1_30:O mem1_31:O mem2_0:O mem2_1:O mem2_2:O mem2_3:O 
+*.PININFO mem2_4:O mem2_5:O mem2_6:O mem2_7:O mem2_8:O mem2_9:O mem2_10:O 
+*.PININFO mem2_11:O mem2_12:O mem2_13:O mem2_14:O mem2_15:O mem2_16:O 
+*.PININFO mem2_17:O mem2_18:O mem2_19:O mem2_20:O mem2_21:O mem2_22:O 
+*.PININFO mem2_23:O mem2_24:O mem2_25:O mem2_26:O mem2_27:O mem2_28:O 
+*.PININFO mem2_29:O mem2_30:O mem2_31:O mem3_0:O mem3_1:O mem3_2:O mem3_3:O 
+*.PININFO mem3_4:O mem3_5:O mem3_6:O mem3_7:O mem3_8:O mem3_9:O mem3_10:O 
+*.PININFO mem3_11:O mem3_12:O mem3_13:O mem3_14:O mem3_15:O mem3_16:O 
+*.PININFO mem3_17:O mem3_18:O mem3_19:O mem3_20:O mem3_21:O mem3_22:O 
+*.PININFO mem3_23:O mem3_24:O mem3_25:O mem3_26:O mem3_27:O mem3_28:O 
+*.PININFO mem3_29:O mem3_30:O mem3_31:O memB0_0:O memB0_1:O memB0_2:O 
+*.PININFO memB0_3:O memB0_4:O memB0_5:O memB0_6:O memB0_7:O memB0_8:O 
+*.PININFO memB0_9:O memB0_10:O memB0_11:O memB0_12:O memB0_13:O memB0_14:O 
+*.PININFO memB0_15:O memB0_16:O memB0_17:O memB0_18:O memB0_19:O memB0_20:O 
+*.PININFO memB0_21:O memB0_22:O memB0_23:O memB0_24:O memB0_25:O memB0_26:O 
+*.PININFO memB0_27:O memB0_28:O memB0_29:O memB0_30:O memB0_31:O memB1_0:O 
+*.PININFO memB1_1:O memB1_2:O memB1_3:O memB1_4:O memB1_5:O memB1_6:O 
+*.PININFO memB1_7:O memB1_8:O memB1_9:O memB1_10:O memB1_11:O memB1_12:O 
+*.PININFO memB1_13:O memB1_14:O memB1_15:O memB1_16:O memB1_17:O memB1_18:O 
+*.PININFO memB1_19:O memB1_20:O memB1_21:O memB1_22:O memB1_23:O memB1_24:O 
+*.PININFO memB1_25:O memB1_26:O memB1_27:O memB1_28:O memB1_29:O memB1_30:O 
+*.PININFO memB1_31:O memB2_0:O memB2_1:O memB2_2:O memB2_3:O memB2_4:O 
+*.PININFO memB2_5:O memB2_6:O memB2_7:O memB2_8:O memB2_9:O memB2_10:O 
+*.PININFO memB2_11:O memB2_12:O memB2_13:O memB2_14:O memB2_15:O memB2_16:O 
+*.PININFO memB2_17:O memB2_18:O memB2_19:O memB2_20:O memB2_21:O memB2_22:O 
+*.PININFO memB2_23:O memB2_24:O memB2_25:O memB2_26:O memB2_27:O memB2_28:O 
+*.PININFO memB2_29:O memB2_30:O memB2_31:O memB3_0:O memB3_1:O memB3_2:O 
+*.PININFO memB3_3:O memB3_4:O memB3_5:O memB3_6:O memB3_7:O memB3_8:O 
+*.PININFO memB3_9:O memB3_10:O memB3_11:O memB3_12:O memB3_13:O memB3_14:O 
+*.PININFO memB3_15:O memB3_16:O memB3_17:O memB3_18:O memB3_19:O memB3_20:O 
+*.PININFO memB3_21:O memB3_22:O memB3_23:O memB3_24:O memB3_25:O memB3_26:O 
+*.PININFO memB3_27:O memB3_28:O memB3_29:O memB3_30:O memB3_31:O IN0:B IN1:B 
+*.PININFO IN2:B IN3:B IN4:B IN5:B IN6:B IN7:B IN8:B IN9:B IN10:B IN11:B IN12:B 
+*.PININFO IN13:B IN14:B IN15:B IN16:B IN17:B IN18:B IN19:B IN20:B IN21:B 
+*.PININFO IN22:B IN23:B IN24:B IN25:B IN26:B IN27:B IN28:B IN29:B IN30:B 
+*.PININFO IN31:B IN32:B IN33:B IN34:B IN35:B IN36:B IN37:B IN38:B IN39:B 
+*.PININFO IN40:B IN41:B IN42:B IN43:B IN44:B IN45:B IN46:B IN47:B IN48:B 
+*.PININFO IN49:B IN50:B IN51:B IN52:B IN53:B IN54:B IN55:B IN56:B IN57:B 
+*.PININFO IN58:B IN59:B IN60:B IN61:B IN62:B IN63:B IN64:B IN65:B IN66:B 
+*.PININFO IN67:B IN68:B IN69:B IN70:B IN71:B IN72:B IN73:B IN74:B IN75:B 
+*.PININFO IN76:B IN77:B IN78:B IN79:B IN80:B IN81:B IN82:B IN83:B IN84:B 
+*.PININFO IN85:B IN86:B IN87:B IN88:B IN89:B IN90:B IN91:B IN92:B IN93:B 
+*.PININFO IN94:B IN95:B IN96:B IN97:B IN98:B IN99:B IN100:B IN101:B IN102:B 
+*.PININFO IN103:B IN104:B IN105:B IN106:B IN107:B IN108:B IN109:B IN110:B 
+*.PININFO IN111:B IN112:B IN113:B IN114:B IN115:B IN116:B IN117:B IN118:B 
+*.PININFO IN119:B IN120:B IN121:B IN122:B IN123:B IN124:B IN125:B IN126:B 
+*.PININFO IN127:B RBL0:B RBL1:B RBLB0:B RBLB1:B Row0sel:B Row1sel:B Row2sel:B 
+*.PININFO Row3sel:B Sout0:B SoutB0:B WBL0:B WBL1:B WBLB0:B WBLB1:B WL0_sel:B 
+*.PININFO WL1_sel:B WL2_sel:B WL3_sel:B Wrdv_in0:B wr_en0:B write1:B
+XI29 RBL0 RBLB0 Row3sel Row3sel WBL0 WBLB0 gnd mem3_0 memB3_0 Vdd WL3_sel 
++ sram_10t
+XI28 RBL0 RBLB0 Row2sel Row2sel WBL0 WBLB0 gnd mem2_0 memB2_0 Vdd WL2_sel 
++ sram_10t
+XI21 RBL0 RBLB0 Row1sel Row1sel WBL0 WBLB0 gnd mem1_0 memB1_0 Vdd WL1_sel 
++ sram_10t
+XI17 RBL0 RBLB0 Row0sel Row0sel WBL0 WBLB0 gnd mem0_0 memB0_0 Vdd WL0_sel 
++ sram_10t
+XI67 RBL1 RBLB1 Row2sel Row2sel WBL1 WBLB1 gnd mem2_1 memB2_1 Vdd WL2_sel 
++ sram_10t
+XI66 RBL1 RBLB1 Row3sel Row3sel WBL1 WBLB1 gnd mem3_1 memB3_1 Vdd WL3_sel 
++ sram_10t
+XI68 RBL1 RBLB1 Row1sel Row1sel WBL1 WBLB1 gnd mem1_1 memB1_1 Vdd WL1_sel 
++ sram_10t
+XI69 RBL1 RBLB1 Row0sel Row0sel WBL1 WBLB1 gnd mem0_1 memB0_1 Vdd WL0_sel 
++ sram_10t
+XI75 net4145 net3645 Row3sel Row3sel net4109 net3643 gnd mem3_2 memB3_2 Vdd 
++ WL3_sel sram_10t
+XI76 net4145 net3645 Row2sel Row2sel net4109 net3643 gnd mem2_2 memB2_2 Vdd 
++ WL2_sel sram_10t
+XI77 net4145 net3645 Row1sel Row1sel net4109 net3643 gnd mem1_2 memB1_2 Vdd 
++ WL1_sel sram_10t
+XI78 net4145 net3645 Row0sel Row0sel net4109 net3643 gnd mem0_2 memB0_2 Vdd 
++ WL0_sel sram_10t
+XI89 net4166 net3649 Row3sel Row3sel net4116 net3647 gnd mem3_3 memB3_3 Vdd 
++ WL3_sel sram_10t
+XI90 net4166 net3649 Row2sel Row2sel net4116 net3647 gnd mem2_3 memB2_3 Vdd 
++ WL2_sel sram_10t
+XI91 net4166 net3649 Row1sel Row1sel net4116 net3647 gnd mem1_3 memB1_3 Vdd 
++ WL1_sel sram_10t
+XI92 net4166 net3649 Row0sel Row0sel net4116 net3647 gnd mem0_3 memB0_3 Vdd 
++ WL0_sel sram_10t
+XI113 net4149 net3653 Row3sel Row3sel net4120 net3651 gnd mem3_4 memB3_4 Vdd 
++ WL3_sel sram_10t
+XI114 net4149 net3653 Row2sel Row2sel net4120 net3651 gnd mem2_4 memB2_4 Vdd 
++ WL2_sel sram_10t
+XI115 net4141 net3657 Row3sel Row3sel net4126 net3655 gnd mem3_5 memB3_5 Vdd 
++ WL3_sel sram_10t
+XI116 net4141 net3657 Row2sel Row2sel net4126 net3655 gnd mem2_5 memB2_5 Vdd 
++ WL2_sel sram_10t
+XI117 net4122 net3661 Row3sel Row3sel net4128 net3659 gnd mem3_6 memB3_6 Vdd 
++ WL3_sel sram_10t
+XI118 net4122 net3661 Row2sel Row2sel net4128 net3659 gnd mem2_6 memB2_6 Vdd 
++ WL2_sel sram_10t
+XI119 net4139 net3665 Row3sel Row3sel net4135 net3663 gnd mem3_7 memB3_7 Vdd 
++ WL3_sel sram_10t
+XI120 net4139 net3665 Row2sel Row2sel net4135 net3663 gnd mem2_7 memB2_7 Vdd 
++ WL2_sel sram_10t
+XI121 net4149 net3653 Row1sel Row1sel net4120 net3651 gnd mem1_4 memB1_4 Vdd 
++ WL1_sel sram_10t
+XI122 net4149 net3653 Row0sel Row0sel net4120 net3651 gnd mem0_4 memB0_4 Vdd 
++ WL0_sel sram_10t
+XI123 net4141 net3657 Row1sel Row1sel net4126 net3655 gnd mem1_5 memB1_5 Vdd 
++ WL1_sel sram_10t
+XI124 net4141 net3657 Row0sel Row0sel net4126 net3655 gnd mem0_5 memB0_5 Vdd 
++ WL0_sel sram_10t
+XI125 net4122 net3661 Row1sel Row1sel net4128 net3659 gnd mem1_6 memB1_6 Vdd 
++ WL1_sel sram_10t
+XI126 net4122 net3661 Row0sel Row0sel net4128 net3659 gnd mem0_6 memB0_6 Vdd 
++ WL0_sel sram_10t
+XI127 net4139 net3665 Row1sel Row1sel net4135 net3663 gnd mem1_7 memB1_7 Vdd 
++ WL1_sel sram_10t
+XI128 net4139 net3665 Row0sel Row0sel net4135 net3663 gnd mem0_7 memB0_7 Vdd 
++ WL0_sel sram_10t
+XI172 net4163 net3669 Row3sel Row3sel net4153 net3667 gnd mem3_8 memB3_8 Vdd 
++ WL3_sel sram_10t
+XI173 net4163 net3669 Row2sel Row2sel net4153 net3667 gnd mem2_8 memB2_8 Vdd 
++ WL2_sel sram_10t
+XI174 net4110 net3673 Row2sel Row2sel net4151 net3671 gnd mem2_9 memB2_9 Vdd 
++ WL2_sel sram_10t
+XI175 net4110 net3673 Row3sel Row3sel net4151 net3671 gnd mem3_9 memB3_9 Vdd 
++ WL3_sel sram_10t
+XI176 net4162 net3677 Row3sel Row3sel net4155 net3675 gnd mem3_10 memB3_10 Vdd 
++ WL3_sel sram_10t
+XI177 net4162 net3677 Row2sel Row2sel net4155 net3675 gnd mem2_10 memB2_10 Vdd 
++ WL2_sel sram_10t
+XI178 net4125 net3681 Row3sel Row3sel net4136 net3679 gnd mem3_11 memB3_11 Vdd 
++ WL3_sel sram_10t
+XI179 net4125 net3681 Row2sel Row2sel net4136 net3679 gnd mem2_11 memB2_11 Vdd 
++ WL2_sel sram_10t
+XI180 net4115 net3685 Row3sel Row3sel net4142 net3683 gnd mem3_12 memB3_12 Vdd 
++ WL3_sel sram_10t
+XI181 net4115 net3685 Row2sel Row2sel net4142 net3683 gnd mem2_12 memB2_12 Vdd 
++ WL2_sel sram_10t
+XI182 net4119 net3689 Row3sel Row3sel net4137 net3687 gnd mem3_13 memB3_13 Vdd 
++ WL3_sel sram_10t
+XI183 net4119 net3689 Row2sel Row2sel net4137 net3687 gnd mem2_13 memB2_13 Vdd 
++ WL2_sel sram_10t
+XI184 net4160 net3694 Row3sel Row3sel net4159 net3692 gnd mem3_14 memB3_14 Vdd 
++ WL3_sel sram_10t
+XI185 net4160 net3694 Row2sel Row2sel net4159 net3692 gnd mem2_14 memB2_14 Vdd 
++ WL2_sel sram_10t
+XI186 net4114 net3699 Row3sel Row3sel net4123 net3697 gnd mem3_15 memB3_15 Vdd 
++ WL3_sel sram_10t
+XI187 net4114 net3699 Row2sel Row2sel net4123 net3697 gnd mem2_15 memB2_15 Vdd 
++ WL2_sel sram_10t
+XI188 net4163 net3669 Row1sel Row1sel net4153 net3667 gnd mem1_8 memB1_8 Vdd 
++ WL1_sel sram_10t
+XI189 net4163 net3669 Row0sel Row0sel net4153 net3667 gnd mem0_8 memB0_8 Vdd 
++ WL0_sel sram_10t
+XI190 net4110 net3673 Row1sel Row1sel net4151 net3671 gnd mem1_9 memB1_9 Vdd 
++ WL1_sel sram_10t
+XI191 net4110 net3673 Row0sel Row0sel net4151 net3671 gnd mem0_9 memB0_9 Vdd 
++ WL0_sel sram_10t
+XI192 net4162 net3677 Row1sel Row1sel net4155 net3675 gnd mem1_10 memB1_10 Vdd 
++ WL1_sel sram_10t
+XI193 net4162 net3677 Row0sel Row0sel net4155 net3675 gnd mem0_10 memB0_10 Vdd 
++ WL0_sel sram_10t
+XI194 net4125 net3681 Row1sel Row1sel net4136 net3679 gnd mem1_11 memB1_11 Vdd 
++ WL1_sel sram_10t
+XI195 net4125 net3681 Row0sel Row0sel net4136 net3679 gnd mem0_11 memB0_11 Vdd 
++ WL0_sel sram_10t
+XI196 net4115 net3685 Row1sel Row1sel net4142 net3683 gnd mem1_12 memB1_12 Vdd 
++ WL1_sel sram_10t
+XI197 net4115 net3685 Row0sel Row0sel net4142 net3683 gnd mem0_12 memB0_12 Vdd 
++ WL0_sel sram_10t
+XI198 net4119 net3689 Row1sel Row1sel net4137 net3687 gnd mem1_13 memB1_13 Vdd 
++ WL1_sel sram_10t
+XI199 net4119 net3689 Row0sel Row0sel net4137 net3687 gnd mem0_13 memB0_13 Vdd 
++ WL0_sel sram_10t
+XI200 net4160 net3694 Row1sel Row1sel net4159 net3692 gnd mem1_14 memB1_14 Vdd 
++ WL1_sel sram_10t
+XI201 net4160 net3694 Row0sel Row0sel net4159 net3692 gnd mem0_14 memB0_14 Vdd 
++ WL0_sel sram_10t
+XI202 net4114 net3699 Row1sel Row1sel net4123 net3697 gnd mem1_15 memB1_15 Vdd 
++ WL1_sel sram_10t
+XI203 net4114 net3699 Row0sel Row0sel net4123 net3697 gnd mem0_15 memB0_15 Vdd 
++ WL0_sel sram_10t
+XI284 net4156 net3704 Row3sel Row3sel net4124 net3702 gnd mem3_16 memB3_16 Vdd 
++ WL3_sel sram_10t
+XI285 net4156 net3704 Row2sel Row2sel net4124 net3702 gnd mem2_16 memB2_16 Vdd 
++ WL2_sel sram_10t
+XI286 net4138 net3709 Row2sel Row2sel net4133 net3707 gnd mem2_17 memB2_17 Vdd 
++ WL2_sel sram_10t
+XI287 net4138 net3709 Row3sel Row3sel net4133 net3707 gnd mem3_17 memB3_17 Vdd 
++ WL3_sel sram_10t
+XI288 net4118 net3714 Row3sel Row3sel net4154 net3712 gnd mem3_18 memB3_18 Vdd 
++ WL3_sel sram_10t
+XI289 net4118 net3714 Row2sel Row2sel net4154 net3712 gnd mem2_18 memB2_18 Vdd 
++ WL2_sel sram_10t
+XI290 net4108 net3719 Row3sel Row3sel net4150 net3717 gnd mem3_19 memB3_19 Vdd 
++ WL3_sel sram_10t
+XI291 net4108 net3719 Row2sel Row2sel net4150 net3717 gnd mem2_19 memB2_19 Vdd 
++ WL2_sel sram_10t
+XI292 net4158 net3724 Row3sel Row3sel net4146 net3722 gnd mem3_20 memB3_20 Vdd 
++ WL3_sel sram_10t
+XI293 net4158 net3724 Row2sel Row2sel net4146 net3722 gnd mem2_20 memB2_20 Vdd 
++ WL2_sel sram_10t
+XI294 net4140 net3754 Row2sel Row2sel net4161 net3752 gnd mem2_26 memB2_26 Vdd 
++ WL2_sel sram_10t
+XI295 net4148 net3744 Row2sel Row2sel net4157 net3742 gnd mem2_24 memB2_24 Vdd 
++ WL2_sel sram_10t
+XI296 net4148 net3744 Row3sel Row3sel net4157 net3742 gnd mem3_24 memB3_24 Vdd 
++ WL3_sel sram_10t
+XI297 net4117 net3749 Row3sel Row3sel net4131 net3747 gnd mem3_25 memB3_25 Vdd 
++ WL3_sel sram_10t
+XI298 net4117 net3749 Row2sel Row2sel net4131 net3747 gnd mem2_25 memB2_25 Vdd 
++ WL2_sel sram_10t
+XI299 net4140 net3754 Row3sel Row3sel net4161 net3752 gnd mem3_26 memB3_26 Vdd 
++ WL3_sel sram_10t
+XI300 net4167 net3729 Row3sel Row3sel net4113 net3727 gnd mem3_21 memB3_21 Vdd 
++ WL3_sel sram_10t
+XI301 net4167 net3729 Row2sel Row2sel net4113 net3727 gnd mem2_21 memB2_21 Vdd 
++ WL2_sel sram_10t
+XI302 net4134 net3734 Row3sel Row3sel net4121 net3732 gnd mem3_22 memB3_22 Vdd 
++ WL3_sel sram_10t
+XI303 net4134 net3734 Row2sel Row2sel net4121 net3732 gnd mem2_22 memB2_22 Vdd 
++ WL2_sel sram_10t
+XI304 net4164 net3739 Row3sel Row3sel net4165 net3737 gnd mem3_23 memB3_23 Vdd 
++ WL3_sel sram_10t
+XI305 net4164 net3739 Row2sel Row2sel net4165 net3737 gnd mem2_23 memB2_23 Vdd 
++ WL2_sel sram_10t
+XI306 net4112 net3759 Row3sel Row3sel net4127 net3757 gnd mem3_27 memB3_27 Vdd 
++ WL3_sel sram_10t
+XI307 net4112 net3759 Row2sel Row2sel net4127 net3757 gnd mem2_27 memB2_27 Vdd 
++ WL2_sel sram_10t
+XI308 net4129 net3764 Row3sel Row3sel net4143 net3762 gnd mem3_28 memB3_28 Vdd 
++ WL3_sel sram_10t
+XI309 net4129 net3764 Row2sel Row2sel net4143 net3762 gnd mem2_28 memB2_28 Vdd 
++ WL2_sel sram_10t
+XI310 net4111 net3769 Row3sel Row3sel net4147 net3767 gnd mem3_29 memB3_29 Vdd 
++ WL3_sel sram_10t
+XI311 net4111 net3769 Row2sel Row2sel net4147 net3767 gnd mem2_29 memB2_29 Vdd 
++ WL2_sel sram_10t
+XI312 net4152 net3774 Row2sel Row2sel net4132 net3772 gnd mem2_30 memB2_30 Vdd 
++ WL2_sel sram_10t
+XI313 net4152 net3774 Row3sel Row3sel net4132 net3772 gnd mem3_30 memB3_30 Vdd 
++ WL3_sel sram_10t
+XI314 net4130 net3779 Row3sel Row3sel net4144 net3777 gnd mem3_31 memB3_31 Vdd 
++ WL3_sel sram_10t
+XI315 net4130 net3779 Row2sel Row2sel net4144 net3777 gnd mem2_31 memB2_31 Vdd 
++ WL2_sel sram_10t
+XI316 net4156 net3704 Row1sel Row1sel net4124 net3702 gnd mem1_16 memB1_16 Vdd 
++ WL1_sel sram_10t
+XI317 net4156 net3704 Row0sel Row0sel net4124 net3702 gnd mem0_16 memB0_16 Vdd 
++ WL0_sel sram_10t
+XI318 net4138 net3709 Row1sel Row1sel net4133 net3707 gnd mem1_17 memB1_17 Vdd 
++ WL1_sel sram_10t
+XI319 net4138 net3709 Row0sel Row0sel net4133 net3707 gnd mem0_17 memB0_17 Vdd 
++ WL0_sel sram_10t
+XI320 net4118 net3714 Row1sel Row1sel net4154 net3712 gnd mem1_18 memB1_18 Vdd 
++ WL1_sel sram_10t
+XI321 net4118 net3714 Row0sel Row0sel net4154 net3712 gnd mem0_18 memB0_18 Vdd 
++ WL0_sel sram_10t
+XI322 net4108 net3719 Row1sel Row1sel net4150 net3717 gnd mem1_19 memB1_19 Vdd 
++ WL1_sel sram_10t
+XI323 net4108 net3719 Row0sel Row0sel net4150 net3717 gnd mem0_19 memB0_19 Vdd 
++ WL0_sel sram_10t
+XI324 net4158 net3724 Row1sel Row1sel net4146 net3722 gnd mem1_20 memB1_20 Vdd 
++ WL1_sel sram_10t
+XI325 net4158 net3724 Row0sel Row0sel net4146 net3722 gnd mem0_20 memB0_20 Vdd 
++ WL0_sel sram_10t
+XI326 net4148 net3744 Row0sel Row0sel net4157 net3742 gnd mem0_24 memB0_24 Vdd 
++ WL0_sel sram_10t
+XI327 net4148 net3744 Row1sel Row1sel net4157 net3742 gnd mem1_24 memB1_24 Vdd 
++ WL1_sel sram_10t
+XI328 net4117 net3749 Row0sel Row0sel net4131 net3747 gnd mem0_25 memB0_25 Vdd 
++ WL0_sel sram_10t
+XI329 net4117 net3749 Row1sel Row1sel net4131 net3747 gnd mem1_25 memB1_25 Vdd 
++ WL1_sel sram_10t
+XI330 net4140 net3754 Row1sel Row1sel net4161 net3752 gnd mem1_26 memB1_26 Vdd 
++ WL1_sel sram_10t
+XI331 net4140 net3754 Row0sel Row0sel net4161 net3752 gnd mem0_26 memB0_26 Vdd 
++ WL0_sel sram_10t
+XI332 net4167 net3729 Row1sel Row1sel net4113 net3727 gnd mem1_21 memB1_21 Vdd 
++ WL1_sel sram_10t
+XI333 net4167 net3729 Row0sel Row0sel net4113 net3727 gnd mem0_21 memB0_21 Vdd 
++ WL0_sel sram_10t
+XI334 net4134 net3734 Row1sel Row1sel net4121 net3732 gnd mem1_22 memB1_22 Vdd 
++ WL1_sel sram_10t
+XI335 net4134 net3734 Row0sel Row0sel net4121 net3732 gnd mem0_22 memB0_22 Vdd 
++ WL0_sel sram_10t
+XI336 net4164 net3739 Row1sel Row1sel net4165 net3737 gnd mem1_23 memB1_23 Vdd 
++ WL1_sel sram_10t
+XI337 net4164 net3739 Row0sel Row0sel net4165 net3737 gnd mem0_23 memB0_23 Vdd 
++ WL0_sel sram_10t
+XI338 net4112 net3759 Row1sel Row1sel net4127 net3757 gnd mem1_27 memB1_27 Vdd 
++ WL1_sel sram_10t
+XI339 net4112 net3759 Row0sel Row0sel net4127 net3757 gnd mem0_27 memB0_27 Vdd 
++ WL0_sel sram_10t
+XI340 net4129 net3764 Row1sel Row1sel net4143 net3762 gnd mem1_28 memB1_28 Vdd 
++ WL1_sel sram_10t
+XI341 net4129 net3764 Row0sel Row0sel net4143 net3762 gnd mem0_28 memB0_28 Vdd 
++ WL0_sel sram_10t
+XI342 net4111 net3769 Row1sel Row1sel net4147 net3767 gnd mem1_29 memB1_29 Vdd 
++ WL1_sel sram_10t
+XI343 net4111 net3769 Row0sel Row0sel net4147 net3767 gnd mem0_29 memB0_29 Vdd 
++ WL0_sel sram_10t
+XI344 net4152 net3774 Row1sel Row1sel net4132 net3772 gnd mem1_30 memB1_30 Vdd 
++ WL1_sel sram_10t
+XI345 net4152 net3774 Row0sel Row0sel net4132 net3772 gnd mem0_30 memB0_30 Vdd 
++ WL0_sel sram_10t
+XI346 net4130 net3779 Row1sel Row1sel net4144 net3777 gnd mem1_31 memB1_31 Vdd 
++ WL1_sel sram_10t
+XI347 net4130 net3779 Row0sel Row0sel net4144 net3777 gnd mem0_31 memB0_31 Vdd 
++ WL0_sel sram_10t
+CC90 net3679 gnd 100f
+CC89 net4136 gnd 100f
+CC1 RBLB0 gnd 100f
+CC88 net3677 gnd 100f
+CC87 net4162 gnd 100f
+CC86 net3675 gnd 100f
+CC17 WBL0 gnd 100f
+CC85 net4155 gnd 100f
+CC16 WBLB0 gnd 100f
+CC48 RBL0 gnd 100f
+CC84 net3673 gnd 100f
+CC83 net4110 gnd 100f
+CC82 net3671 gnd 100f
+CC81 net4151 gnd 100f
+CC80 net3669 gnd 100f
+CC79 net4163 gnd 100f
+CC78 net3667 gnd 100f
+CC77 net4153 gnd 100f
+CC49 RBLB1 gnd 100f
+CC50 WBL1 gnd 100f
+CC51 WBLB1 gnd 100f
+CC52 RBL1 gnd 100f
+CC53 net3645 gnd 100f
+CC54 net4109 gnd 100f
+CC55 net3643 gnd 100f
+CC56 net4145 gnd 100f
+CC57 net4116 gnd 100f
+CC58 net3647 gnd 100f
+CC59 net4166 gnd 100f
+CC60 net3649 gnd 100f
+CC61 net4120 gnd 100f
+CC62 net3651 gnd 100f
+CC63 net4149 gnd 100f
+CC64 net3653 gnd 100f
+CC65 net4126 gnd 100f
+CC66 net3655 gnd 100f
+CC67 net4141 gnd 100f
+CC68 net3657 gnd 100f
+CC69 net4128 gnd 100f
+CC70 net3659 gnd 100f
+CC71 net4122 gnd 100f
+CC72 net3661 gnd 100f
+CC73 net4135 gnd 100f
+CC74 net3663 gnd 100f
+CC75 net4139 gnd 100f
+CC76 net3665 gnd 100f
+CC91 net4125 gnd 100f
+CC92 net3681 gnd 100f
+CC93 net4142 gnd 100f
+CC94 net3683 gnd 100f
+CC95 net4115 gnd 100f
+CC96 net3685 gnd 100f
+CC97 net4137 gnd 100f
+CC98 net3687 gnd 100f
+CC99 net4119 gnd 100f
+CC100 net3689 gnd 100f
+CC101 net4159 gnd 100f
+CC102 net3692 gnd 100f
+CC103 net4160 gnd 100f
+CC104 net3694 gnd 100f
+CC105 net4123 gnd 100f
+CC106 net3697 gnd 100f
+CC107 net4114 gnd 100f
+CC108 net3699 gnd 100f
+CC109 net4124 gnd 100f
+CC110 net3702 gnd 100f
+CC111 net4156 gnd 100f
+CC112 net3704 gnd 100f
+CC113 net4133 gnd 100f
+CC114 net3707 gnd 100f
+CC115 net4138 gnd 100f
+CC116 net3709 gnd 100f
+CC117 net4154 gnd 100f
+CC118 net3712 gnd 100f
+CC119 net4118 gnd 100f
+CC120 net3714 gnd 100f
+CC121 net4150 gnd 100f
+CC122 net3717 gnd 100f
+CC123 net4108 gnd 100f
+CC124 net3719 gnd 100f
+CC125 net4146 gnd 100f
+CC126 net3722 gnd 100f
+CC127 net4158 gnd 100f
+CC128 net3724 gnd 100f
+CC129 net4157 gnd 100f
+CC130 net3742 gnd 100f
+CC131 net4148 gnd 100f
+CC132 net3744 gnd 100f
+CC133 net4131 gnd 100f
+CC134 net3747 gnd 100f
+CC135 net4117 gnd 100f
+CC136 net3749 gnd 100f
+CC137 net4161 gnd 100f
+CC138 net3752 gnd 100f
+CC139 net4113 gnd 100f
+CC140 net3727 gnd 100f
+CC141 net4167 gnd 100f
+CC142 net3729 gnd 100f
+CC143 net4121 gnd 100f
+CC144 net3732 gnd 100f
+CC145 net4134 gnd 100f
+CC146 net3734 gnd 100f
+CC147 net4165 gnd 100f
+CC148 net3737 gnd 100f
+CC149 net4164 gnd 100f
+CC150 net3739 gnd 100f
+CC151 net4140 gnd 100f
+CC152 net3754 gnd 100f
+CC153 net4127 gnd 100f
+CC154 net3757 gnd 100f
+CC155 net4112 gnd 100f
+CC156 net3759 gnd 100f
+CC157 net4143 gnd 100f
+CC158 net3762 gnd 100f
+CC159 net4129 gnd 100f
+CC160 net3764 gnd 100f
+CC161 net4147 gnd 100f
+CC162 net3767 gnd 100f
+CC163 net4111 gnd 100f
+CC164 net3769 gnd 100f
+CC165 net4132 gnd 100f
+CC166 net3772 gnd 100f
+CC167 net4152 gnd 100f
+CC168 net3774 gnd 100f
+CC169 net4144 gnd 100f
+CC170 net3777 gnd 100f
+CC171 net4130 gnd 100f
+CC172 net3779 gnd 100f
+CC198 Row0sel gnd 50f
+CC182 Row2sel gnd 50f
+CC183 Row3sel gnd 50f
+CC184 Row1sel gnd 50f
+CC199 WL2_sel gnd 50f
+CC200 WL1_sel gnd 50f
+CC201 WL0_sel gnd 50f
+CC197 WL3_sel gnd 50f
+XI147 net4136 net3679 Vdd net4063 gnd w_en write_driver1
+XI142 net4155 net3675 Vdd net4064 gnd w_en write_driver1
+XI60 WBL0 WBLB0 Vdd Wrdv_in0 gnd wr_en0 write_driver1
+XI137 net4151 net3671 Vdd net4065 gnd w_en write_driver1
+XI132 net4153 net3667 Vdd net4066 gnd w_en write_driver1
+XI71 WBL1 WBLB1 Vdd write1 gnd wr_en0 write_driver1
+XI80 net4109 net3643 Vdd net4067 gnd wr_en0 write_driver1
+XI84 net4116 net3647 Vdd net4068 gnd wr_en0 write_driver1
+XI93 net4120 net3651 Vdd net4069 gnd wr_en0 write_driver1
+XI98 net4126 net3655 Vdd net4070 gnd wr_en0 write_driver1
+XI103 net4128 net3659 Vdd net4071 gnd wr_en0 write_driver1
+XI108 net4135 net3663 Vdd net4072 gnd wr_en0 write_driver1
+XI152 net4142 net3683 Vdd net4062 gnd w_en write_driver1
+XI157 net4137 net3687 Vdd net4061 gnd w_en write_driver1
+XI162 net4159 net3692 Vdd net4060 gnd w_en write_driver1
+XI167 net4123 net3697 Vdd net4074 gnd w_en write_driver1
+XI204 net4124 net3702 Vdd net4076 gnd w_en write_driver1
+XI209 net4133 net3707 Vdd net4077 gnd w_en write_driver1
+XI214 net4154 net3712 Vdd net4078 gnd w_en write_driver1
+XI219 net4150 net3717 Vdd net4079 gnd w_en write_driver1
+XI224 net4146 net3722 Vdd net4080 gnd w_en write_driver1
+XI230 net4157 net3742 Vdd net4084 gnd w_en write_driver1
+XI235 net4131 net3747 Vdd net4085 gnd w_en write_driver1
+XI240 net4161 net3752 Vdd net4086 gnd w_en write_driver1
+XI242 net4113 net3727 Vdd net4081 gnd w_en write_driver1
+XI247 net4121 net3732 Vdd net4082 gnd w_en write_driver1
+XI252 net4165 net3737 Vdd net4083 gnd w_en write_driver1
+XI259 net4127 net3757 Vdd net4087 gnd w_en write_driver1
+XI264 net4143 net3762 Vdd net4088 gnd w_en write_driver1
+XI269 net4147 net3767 Vdd net4089 gnd w_en write_driver1
+XI274 net4132 net3772 Vdd net4090 gnd w_en write_driver1
+XI279 net4144 net3777 Vdd net4091 gnd w_en write_driver1
+XI148 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN27 IN31 IN3 IN4 net3873 IN43 IN75 IN107 
++ net4063 Vdd gnd mux4_1_test
+XI56 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN16 IN20 IN24 IN25 net0690 IN32 IN64 IN96 
++ Wrdv_in0 Vdd gnd mux4_1_test
+XI143 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN26 IN30 IN2 IN3 net3864 IN42 IN74 IN106 
++ net4064 Vdd gnd mux4_1_test
+XI138 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN25 IN29 IN1 IN2 net3855 IN41 IN73 IN105 
++ net4065 Vdd gnd mux4_1_test
+XI133 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN24 IN28 IN0 IN1 net3846 IN40 IN72 IN104 
++ net4066 Vdd gnd mux4_1_test
+XI70 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN17 IN21 IN25 IN26 net0699 IN33 IN65 IN97 
++ write1 Vdd gnd mux4_1_test
+XI79 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN18 IN22 IN26 IN27 net3792 IN34 IN66 IN98 
++ net4067 Vdd gnd mux4_1_test
+XI85 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN19 IN23 IN27 IN28 net3801 IN35 IN67 IN99 
++ net4068 Vdd gnd mux4_1_test
+XI94 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN20 IN24 IN28 IN29 net3810 IN36 IN68 IN100 
++ net4069 Vdd gnd mux4_1_test
+XI99 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN21 IN25 IN29 IN30 net3819 IN37 IN69 IN101 
++ net4070 Vdd gnd mux4_1_test
+XI104 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN22 IN26 IN30 IN31 net3828 IN38 IN70 IN102 
++ net4071 Vdd gnd mux4_1_test
+XI109 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN23 IN27 IN31 IN0 net3837 IN39 IN71 IN103 
++ net4072 Vdd gnd mux4_1_test
+XI153 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN28 IN0 IN4 IN5 net3882 IN44 IN76 IN108 
++ net4062 Vdd gnd mux4_1_test
+XI158 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN29 IN1 IN5 IN6 net3891 IN45 IN77 IN109 
++ net4061 Vdd gnd mux4_1_test
+XI163 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN30 IN2 IN6 IN7 net3900 IN46 IN78 IN110 
++ net4060 Vdd gnd mux4_1_test
+XI168 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN31 IN3 IN7 IN8 net3909 IN47 IN79 IN111 
++ net4074 Vdd gnd mux4_1_test
+XI205 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN0 IN4 IN8 IN9 net3918 IN48 IN80 IN112 
++ net4076 Vdd gnd mux4_1_test
+XI210 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN1 IN5 IN9 IN10 net3927 IN49 IN81 IN113 
++ net4077 Vdd gnd mux4_1_test
+XI215 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN2 IN6 IN10 IN11 net3936 IN50 IN82 IN114 
++ net4078 Vdd gnd mux4_1_test
+XI220 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN3 IN7 IN11 IN12 net3945 IN51 IN83 IN115 
++ net4079 Vdd gnd mux4_1_test
+XI225 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN4 IN8 IN12 IN13 net3954 IN52 IN84 IN116 
++ net4080 Vdd gnd mux4_1_test
+XI231 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN8 IN12 IN16 IN17 net3990 IN56 IN88 IN120 
++ net4084 Vdd gnd mux4_1_test
+XI236 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN9 IN13 IN17 IN18 net3999 IN57 IN89 IN121 
++ net4085 Vdd gnd mux4_1_test
+XI241 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN10 IN14 IN18 IN19 net4008 IN58 IN90 IN122 
++ net4086 Vdd gnd mux4_1_test
+XI243 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN5 IN9 IN13 IN14 net3963 IN53 IN85 IN117 
++ net4081 Vdd gnd mux4_1_test
+XI248 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN6 IN10 IN14 IN15 net3972 IN54 IN86 IN118 
++ net4082 Vdd gnd mux4_1_test
+XI253 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN7 IN11 IN15 IN16 net3981 IN55 IN87 IN119 
++ net4083 Vdd gnd mux4_1_test
+XI260 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN11 IN15 IN19 IN20 net4017 IN59 IN91 IN123 
++ net4087 Vdd gnd mux4_1_test
+XI265 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN12 IN16 IN20 IN21 net4026 IN60 IN92 IN124 
++ net4088 Vdd gnd mux4_1_test
+XI270 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN13 IN17 IN21 IN22 net4035 IN61 IN93 IN125 
++ net4089 Vdd gnd mux4_1_test
+XI275 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN14 IN18 IN22 IN23 net4044 IN62 IN94 IN126 
++ net4090 Vdd gnd mux4_1_test
+XI280 MUX_SEL0 MUX_SEL1 MUX_SEL2 IN15 IN19 IN23 IN24 net01026 IN63 IN95 IN127 
++ net4091 Vdd gnd mux4_1_test
+XI146 net3677 SAen Vdd net3871 gnd inverter_wLATCH
+XI144 net4162 SAen Vdd net3870 gnd inverter_wLATCH
+XI141 net3673 SAen Vdd net3862 gnd inverter_wLATCH
+XI49 RBL0 SAen Vdd Sout0 gnd inverter_wLATCH
+XI139 net4110 SAen Vdd net3861 gnd inverter_wLATCH
+XI136 net3669 SAen Vdd net3853 gnd inverter_wLATCH
+XI134 net4163 SAen Vdd net3852 gnd inverter_wLATCH
+XI64 RBLB0 SAen Vdd SoutB0 gnd inverter_wLATCH
+XI72 RBL1 SAen Vdd net3790 gnd inverter_wLATCH
+XI73 RBLB1 SAen Vdd net3791 gnd inverter_wLATCH
+XI81 net4145 SAen Vdd net3798 gnd inverter_wLATCH
+XI82 net3645 SAen Vdd net3799 gnd inverter_wLATCH
+XI86 net4166 SAen Vdd net3807 gnd inverter_wLATCH
+XI88 net3649 SAen Vdd net3809 gnd inverter_wLATCH
+XI95 net4149 SAen Vdd net3816 gnd inverter_wLATCH
+XI97 net3653 SAen Vdd net3818 gnd inverter_wLATCH
+XI100 net4141 SAen Vdd net3825 gnd inverter_wLATCH
+XI102 net3657 SAen Vdd net3827 gnd inverter_wLATCH
+XI105 net4122 SAen Vdd net3834 gnd inverter_wLATCH
+XI107 net3661 SAen Vdd net3836 gnd inverter_wLATCH
+XI110 net4139 SAen Vdd net3843 gnd inverter_wLATCH
+XI112 net3665 SAen Vdd net3845 gnd inverter_wLATCH
+XI149 net4125 SAen Vdd net3879 gnd inverter_wLATCH
+XI151 net3681 SAen Vdd net3881 gnd inverter_wLATCH
+XI154 net4115 SAen Vdd net3888 gnd inverter_wLATCH
+XI156 net3685 SAen Vdd net3890 gnd inverter_wLATCH
+XI159 net4119 SAen Vdd net3897 gnd inverter_wLATCH
+XI161 net3689 SAen Vdd net3899 gnd inverter_wLATCH
+XI164 net4160 SAen Vdd net3906 gnd inverter_wLATCH
+XI166 net3694 SAen Vdd net3908 gnd inverter_wLATCH
+XI169 net4114 SAen Vdd net3915 gnd inverter_wLATCH
+XI171 net3699 SAen Vdd net3917 gnd inverter_wLATCH
+XI206 net4156 SAen Vdd net3924 gnd inverter_wLATCH
+XI208 net3704 SAen Vdd net3925 gnd inverter_wLATCH
+XI211 net4138 SAen Vdd net3933 gnd inverter_wLATCH
+XI213 net3709 SAen Vdd net3934 gnd inverter_wLATCH
+XI216 net4118 SAen Vdd net3942 gnd inverter_wLATCH
+XI218 net3714 SAen Vdd net3943 gnd inverter_wLATCH
+XI221 net4108 SAen Vdd net3951 gnd inverter_wLATCH
+XI223 net3719 SAen Vdd net3953 gnd inverter_wLATCH
+XI226 net4158 SAen Vdd net3960 gnd inverter_wLATCH
+XI228 net3724 SAen Vdd net3962 gnd inverter_wLATCH
+XI229 net4140 SAen Vdd net4014 gnd inverter_wLATCH
+XI232 net4148 SAen Vdd net3996 gnd inverter_wLATCH
+XI234 net3744 SAen Vdd net3997 gnd inverter_wLATCH
+XI237 net4117 SAen Vdd net4005 gnd inverter_wLATCH
+XI239 net3749 SAen Vdd net4006 gnd inverter_wLATCH
+XI244 net4167 SAen Vdd net3969 gnd inverter_wLATCH
+XI246 net3729 SAen Vdd net3971 gnd inverter_wLATCH
+XI249 net4134 SAen Vdd net3978 gnd inverter_wLATCH
+XI251 net3734 SAen Vdd net3980 gnd inverter_wLATCH
+XI254 net4164 SAen Vdd net3987 gnd inverter_wLATCH
+XI256 net3739 SAen Vdd net3989 gnd inverter_wLATCH
+XI258 net3754 SAen Vdd net4015 gnd inverter_wLATCH
+XI261 net4112 SAen Vdd net4023 gnd inverter_wLATCH
+XI263 net3759 SAen Vdd net4025 gnd inverter_wLATCH
+XI266 net4129 SAen Vdd net4032 gnd inverter_wLATCH
+XI268 net3764 SAen Vdd net4034 gnd inverter_wLATCH
+XI271 net4111 SAen Vdd net4041 gnd inverter_wLATCH
+XI273 net3769 SAen Vdd net4043 gnd inverter_wLATCH
+XI276 net4152 SAen Vdd net4050 gnd inverter_wLATCH
+XI278 net3774 SAen Vdd net4052 gnd inverter_wLATCH
+XI281 net4130 SAen Vdd net4058 gnd inverter_wLATCH
+XI283 net3779 SAen Vdd net4059 gnd inverter_wLATCH
+XI130 WWL0 WWL1 WWL_en Vdd WL0_sel WL1_sel WL2_sel WL3_sel clk gnd 
++ decoder2_4_chota_2
+XM0 RBL0 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM1 RBLB0 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM12 RBL1 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM13 RBLB1 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM14 net4145 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM15 net3645 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM16 net4166 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM17 net3649 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM18 net4149 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM19 net3653 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM20 net4141 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM21 net3657 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM22 net4122 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM23 net3661 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM24 net4139 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM25 net3665 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM26 net4163 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM27 net3669 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM28 net4110 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM29 net3673 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM30 net4162 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM31 net3677 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM32 net4125 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM33 net3681 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM34 net4115 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM35 net3685 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM36 net4119 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM37 net3689 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM38 net4160 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM39 net3694 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM40 net4114 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM41 net3699 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM74 WBL0 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM75 WBLB0 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM42 net4156 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM43 net3704 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM44 net4138 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM45 net3709 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM46 net4118 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM47 net3714 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM48 net4108 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM49 net3719 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM50 net4158 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM51 net3724 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM52 net4140 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM53 net4148 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM54 net3744 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM55 net4117 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM56 net3749 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM57 net4167 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM58 net3729 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM59 net4134 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM60 net3734 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM61 net4164 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM62 net3739 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM63 net3754 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM64 net4112 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM65 net3759 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM66 net4129 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM67 net3764 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM68 net4111 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM69 net3769 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM70 net4152 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM71 net3774 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM72 net4130 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM73 net3779 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM76 WBLB1 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM77 WBL1 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM78 net4109 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM79 net3643 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM80 net3647 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM81 net4116 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM82 net4135 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM83 net3663 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM84 net3659 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM85 net4128 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM86 net4126 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM87 net3655 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM88 net3651 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM89 net4120 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM106 net3675 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM107 net4155 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM108 net3667 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM109 net4153 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM110 net4151 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM111 net3671 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM122 net4142 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM123 net3683 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM124 net3687 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM125 net4137 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM126 net4136 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM127 net3679 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM128 net4159 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM129 net3692 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM130 net3697 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM131 net4123 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM148 net4146 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM149 net3722 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM150 net3727 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM151 net4113 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM152 net4121 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM153 net3732 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM154 net3737 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM155 net4165 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM156 net4150 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM157 net3717 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM158 net3712 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM159 net4154 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM160 net3702 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM161 net4124 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM162 net4133 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM163 net3707 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM164 net4143 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM165 net3762 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM166 net3767 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM167 net4147 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM168 net4132 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM169 net3772 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM170 net3777 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM171 net4144 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM172 net4127 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM173 net3757 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM174 net3752 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM175 net4161 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM176 net3742 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM177 net4157 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM178 net4131 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XM179 net3747 PreCh Vdd Vdd plvtlp w=0.81 l=0.06 nfing=1 sense=0 ngcon=1 m=1 
++ accurateFlow=0
+XI145 IN10 net3870 net3871 net3863 net3872 net3864 Calc_en Vdd gnd CSA
+XI140 IN9 net3861 net3862 net3854 net3863 net3855 Calc_en Vdd gnd CSA
+XI135 IN8 net3852 net3853 net3844 net3854 net3846 Calc_en Vdd gnd CSA
+XI65 IN0 Sout0 SoutB0 gnd net0697 net0690 Calc_en Vdd gnd CSA
+XI74 IN1 net3790 net3791 net0697 net0708 net0699 Calc_en Vdd gnd CSA
+XI83 IN2 net3798 net3799 net0708 net3800 net3792 Calc_en Vdd gnd CSA
+XI87 IN3 net3807 net3809 net3800 net3808 net3801 Calc_en Vdd gnd CSA
+XI96 IN4 net3816 net3818 net3808 net3817 net3810 Calc_en Vdd gnd CSA
+XI101 IN5 net3825 net3827 net3817 net3826 net3819 Calc_en Vdd gnd CSA
+XI106 IN6 net3834 net3836 net3826 net3835 net3828 Calc_en Vdd gnd CSA
+XI111 IN7 net3843 net3845 net3835 net3844 net3837 Calc_en Vdd gnd CSA
+XI150 IN11 net3879 net3881 net3872 net3880 net3873 Calc_en Vdd gnd CSA
+XI155 IN12 net3888 net3890 net3880 net3889 net3882 Calc_en Vdd gnd CSA
+XI160 IN13 net3897 net3899 net3889 net3898 net3891 Calc_en Vdd gnd CSA
+XI165 IN14 net3906 net3908 net3898 net3907 net3900 Calc_en Vdd gnd CSA
+XI170 IN15 net3915 net3917 net3907 net3916 net3909 Calc_en Vdd gnd CSA
+XI207 IN16 net3924 net3925 net3916 net3926 net3918 Calc_en Vdd gnd CSA
+XI212 IN17 net3933 net3934 net3926 net3935 net3927 Calc_en Vdd gnd CSA
+XI217 IN18 net3942 net3943 net3935 net3944 net3936 Calc_en Vdd gnd CSA
+XI222 IN19 net3951 net3953 net3944 net3952 net3945 Calc_en Vdd gnd CSA
+XI227 IN20 net3960 net3962 net3952 net3961 net3954 Calc_en Vdd gnd CSA
+XI233 IN24 net3996 net3997 net3988 net3998 net3990 Calc_en Vdd gnd CSA
+XI238 IN25 net4005 net4006 net3998 net4007 net3999 Calc_en Vdd gnd CSA
+XI245 IN21 net3969 net3971 net3961 net3970 net3963 Calc_en Vdd gnd CSA
+XI250 IN22 net3978 net3980 net3970 net3979 net3972 Calc_en Vdd gnd CSA
+XI255 IN23 net3987 net3989 net3979 net3988 net3981 Calc_en Vdd gnd CSA
+XI257 IN26 net4014 net4015 net4007 net4016 net4008 Calc_en Vdd gnd CSA
+XI262 IN27 net4023 net4025 net4016 net4024 net4017 Calc_en Vdd gnd CSA
+XI267 IN28 net4032 net4034 net4024 net4033 net4026 Calc_en Vdd gnd CSA
+XI272 IN29 net4041 net4043 net4033 net4042 net4035 Calc_en Vdd gnd CSA
+XI277 IN30 net4050 net4052 net4042 net4051 net4044 Calc_en Vdd gnd CSA
+XI282 IN31 net4058 net4059 net4051 Cout net01026 Calc_en Vdd gnd CSA
+XI131 RWL0 RWL1 RWL_en Vdd Row0sel Row1sel Row2sel Row3sel clk gnd row0_rwl 
++ row2_rwl Clocked_decoder_read
+.ENDS
+

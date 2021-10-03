@@ -1,0 +1,181 @@
+****
+
+.LIB /modelfile_65nm/typNtypP.cir
+*.include 'Netlist/Chacha_4x128_Circuit.cir'
+.include 'Netlist/Array32x4_main2'
+.include 'Netlist/Array32x4_sub'
+.include 'Netlist/Output.cir'
+.include 'Netlist/Power.cir' 
+
+.option AEX
+
+
+
+
+XCol1 Calc_en Cout IN0 IN1 IN2 IN3 IN4 IN5 IN6 IN7 IN8 IN9 IN10 
++ IN11 IN12 IN13 IN14 IN15 IN16 IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 IN25 
++ IN26 IN27 IN28 IN29 IN30 IN31 IN32 IN33 IN34 IN35 IN36 IN37 IN38 IN39 IN40 
++ IN41 IN42 IN43 IN44 IN45 IN46 IN47 IN48 IN49 IN50 IN51 IN52 IN53 IN54 IN55 
++ IN56 IN57 IN58 IN59 IN60 IN61 IN62 IN63 IN64 IN65 IN66 IN67 IN68 IN69 IN70 
++ IN71 IN72 IN73 IN74 IN75 IN76 IN77 IN78 IN79 IN80 IN81 IN82 IN83 IN84 IN85 
++ IN86 IN87 IN88 IN89 IN90 IN91 IN92 IN93 IN94 IN95 IN96 IN97 IN98 IN99 IN100 
++ IN101 IN102 IN103 IN104 IN105 IN106 IN107 IN108 IN109 IN110 IN111 IN112 
++ IN113 IN114 IN115 IN116 IN117 IN118 IN119 IN120 IN121 IN122 IN123 IN124 
++ IN125 IN126 IN127 MUX_SEL0 MUX_SEL1 MUX_SEL2 PreCh RBL0 RBL1 RBLB0 RBLB1 
++ RWL0 RWL1 RWL_en Row0sel Row1sel Row2sel Row3sel SAen Sout0 SoutB0 Vdd WBL0 
++ WBL1 WBLB0 WBLB1 WL0_sel WL1_sel WL2_sel WL3_sel WWL0 WWL1 WWL_en Wrdv_in0 
++ clk gnd mem0_0 mem0_1 mem0_2 mem0_3 mem0_4 mem0_5 mem0_6 mem0_7 mem0_8 
++ mem0_9 mem0_10 mem0_11 mem0_12 mem0_13 mem0_14 mem0_15 mem0_16 mem0_17 
++ mem0_18 mem0_19 mem0_20 mem0_21 mem0_22 mem0_23 mem0_24 mem0_25 mem0_26 
++ mem0_27 mem0_28 mem0_29 mem0_30 mem0_31 mem1_0 mem1_1 mem1_2 mem1_3 mem1_4 
++ mem1_5 mem1_6 mem1_7 mem1_8 mem1_9 mem1_10 mem1_11 mem1_12 mem1_13 mem1_14 
++ mem1_15 mem1_16 mem1_17 mem1_18 mem1_19 mem1_20 mem1_21 mem1_22 mem1_23 
++ mem1_24 mem1_25 mem1_26 mem1_27 mem1_28 mem1_29 mem1_30 mem1_31 mem2_0 
++ mem2_1 mem2_2 mem2_3 mem2_4 mem2_5 mem2_6 mem2_7 mem2_8 mem2_9 mem2_10 
++ mem2_11 mem2_12 mem2_13 mem2_14 mem2_15 mem2_16 mem2_17 mem2_18 mem2_19 
++ mem2_20 mem2_21 mem2_22 mem2_23 mem2_24 mem2_25 mem2_26 mem2_27 mem2_28 
++ mem2_29 mem2_30 mem2_31 mem3_0 mem3_1 mem3_2 mem3_3 mem3_4 mem3_5 mem3_6 
++ mem3_7 mem3_8 mem3_9 mem3_10 mem3_11 mem3_12 mem3_13 mem3_14 mem3_15 mem3_16 
++ mem3_17 mem3_18 mem3_19 mem3_20 mem3_21 mem3_22 mem3_23 mem3_24 mem3_25 
++ mem3_26 mem3_27 mem3_28 mem3_29 mem3_30 mem3_31 memB0_0 memB0_1 memB0_2 
++ memB0_3 memB0_4 memB0_5 memB0_6 memB0_7 memB0_8 memB0_9 memB0_10 memB0_11 
++ memB0_12 memB0_13 memB0_14 memB0_15 memB0_16 memB0_17 memB0_18 memB0_19 
++ memB0_20 memB0_21 memB0_22 memB0_23 memB0_24 memB0_25 memB0_26 memB0_27 
++ memB0_28 memB0_29 memB0_30 memB0_31 memB1_0 memB1_1 memB1_2 memB1_3 memB1_4 
++ memB1_5 memB1_6 memB1_7 memB1_8 memB1_9 memB1_10 memB1_11 memB1_12 memB1_13 
++ memB1_14 memB1_15 memB1_16 memB1_17 memB1_18 memB1_19 memB1_20 memB1_21 
++ memB1_22 memB1_23 memB1_24 memB1_25 memB1_26 memB1_27 memB1_28 memB1_29 
++ memB1_30 memB1_31 memB2_0 memB2_1 memB2_2 memB2_3 memB2_4 memB2_5 memB2_6 
++ memB2_7 memB2_8 memB2_9 memB2_10 memB2_11 memB2_12 memB2_13 memB2_14 
++ memB2_15 memB2_16 memB2_17 memB2_18 memB2_19 memB2_20 memB2_21 memB2_22 
++ memB2_23 memB2_24 memB2_25 memB2_26 memB2_27 memB2_28 memB2_29 memB2_30 
++ memB2_31 memB3_0 memB3_1 memB3_2 memB3_3 memB3_4 memB3_5 memB3_6 memB3_7 
++ memB3_8 memB3_9 memB3_10 memB3_11 memB3_12 memB3_13 memB3_14 memB3_15 
++ memB3_16 memB3_17 memB3_18 memB3_19 memB3_20 memB3_21 memB3_22 memB3_23 
++ memB3_24 memB3_25 memB3_26 memB3_27 memB3_28 memB3_29 memB3_30 memB3_31 
++ row0_rwl row2_rwl w_en wr_en0 Array128_4
+***********LATCH Vaues***********
+*** memory_initialization file
+
+***********Gnd and Vdd Connections***********
+.connect gnd 0
+v0 Vdd gnd dc 1.2
+
+***pattern (VHI VLOW TDELAY TRISE TFALL TSAMPLE TBITS R)
+***(R means periodic)
+
+
+**************************************************************
+*w_com_rot 1 -> write-back output of sum
+*w_com_rot 0 -> write-back output of xor+rot
+**************************************************************
+
+***********Control Signals***********
+*Row0+Row1----> store in Row0
+*Row0 xor Row3 rotleft by 3 --> store in Row0
+*Precharge is active-low
+
+*need clock=0 and WWL_en=1 for Write Decoder circuit
+*Write operation only done in negative clock cycle, when clock=0 and WWL_en=1
+
+*need clock=1 and RWL_en=1 for Read Decoder circuit
+*Read operation done in positive clock cycle, when clock=0 and WWL_en=1
+
+*Add row0 row1 : shot both bitlines
+*Benefit RCS as R0 is accessed by main-decoder and written also, common WL signals helps
+
+
+*RCS implemented partially, WWL RWL not merged , but these can be merged!!!!!
+*Can't bring the precharge high until write operation is completed
+*************************************************************************
+
+.ic v(Sout0)=0v v(SoutB0)=0v
+*Doubt when can we turn off the clock signal? as address decoders
+*Turning off address decoders before sense amp high
+*1.4ns to precharge the bitlines
+*clock = 1100 cuz writedecoder need clock=0 and enable=1
+*						   01   30    23   12    03
+* Complete Odd+shift+Even Round				 
+vclk clk       gnd	pattern 1.2 0 2p 2p 2p 1n 	01100110011001100110011001100110 R 
+vprh PreCh     gnd	pattern 1.2 0 2p 2p 2p 1n 	01110111011101110111011101110111 R
+vr1  RWL1      gnd	pattern 1.2 0 2p 2p 2p 1n 	00000110011000000000011001100000 R
+vr0  RWL0      gnd	pattern 1.2 0 2p 2p 2p 1n 	01100110011001100110011001100110 R
+vren RWL_en    gnd  	pattern 1.2 0 2p 2p 2p 1n 	01100110011001100110011001100110 R
+v6  SAen       gnd  	pattern 1.2 0 2p 2p 2p 1n 	00100010001000100010001000100010 R
+vcalc Calc_en  gnd 	pattern 1.2 0 2p 2p 2p 1n 	11110000111100001111000011110000 R
+vw1  WWL1      gnd 	pattern 1.2 0 2p 2p 2p 1n 	00001111111100000000111111110000 R
+vw0  WWL0      gnd 	pattern 1.2 0 2p 2p 2p 1n 	00001111000011110000111100001111 R
+vwen WWL_en    gnd	pattern 1.2 0 2p 2p 2p 1n 	00110011001100110011001100110011 R
+v7  w_en       gnd	pattern 1.2 0 2p 2p 2p 1n 	00010001000100010001000100010001 R
+vRWL1 row0_rwl gnd	pattern 1.2 0 2p 2p 2p 1n 	01100110000000000110011000000000 R
+vRWL2 row2_rwl gnd  	pattern 1.2 0 2p 2p 2p 1n 	00000000011001100000000001100110 R
+vmux0 MUX_SEL0 gnd  	pattern 1.2 0 2p 2p 2p 1n 	00000000000000000000000000001111 R
+vmux1 MUX_SEL1 gnd  	pattern 1.2 0 2p 2p 2p 1n 	00000000000011110000111100000000 R
+vmux2 MUX_SEL2 gnd  	pattern 1.2 0 2p 2p 2p 1n	00001111000000000000111100000000 R
+
+.connect wr_en0 w_en
+
+
+
+***MUX SELECT SIGNALS (shift LSB -> MSB )
+***MuxSEl012
+***000 sum_in
+***001 barrel  shift  16
+***010 barrel  shift  12
+***011 barrel  shift  8
+***100 barrel  shift  7
+***101 barrel  shift  colLS1
+***110 barrel  shift  colLS2
+***111 barrel  shift  colLS3
+
+*********************************
+*1. Find Pch Delay to charge (worst case-consecutive write) done
+*2. Calc Pch Off time to do read+write operation ,XOR+Rot (RCS)
+*3. Calc Pch Off time to do read+write operation , Addition(RCS)
+
+*********************************
+
+
+
+.tran 2p 32n
+.plot tran
++ I(v0)
++ v(clk) v(PreCh) v(RWL1) v(RWL0) v(RWL_en)
++ v(Row0sel) v(Row1sel) v(Row2sel) v(Row3sel)
++ v(WL0_sel) v(WL1_sel) v(WL2_sel) v(WL3_sel)
++ v(WBL0) v(WBLB0) 
++ v(RBL0) v(RBLB0) 
++ v(Sout0) v(SoutB0) 
++ v(Wrdv_in0)
++ v(SAen) v(WWL1) v(WWL0) v(WWL_en) v(wr_en0) v(w_en)
++ v(IN0) v(IN1) v(IN2) v(IN3) v(IN4)
+
++ v(mem0_0)  v(memB0_0)
++ v(mem1_0)  v(memB1_0)
++ v(mem2_0)  v(memB2_0)
++ v(mem3_0)  v(memB3_0)
++v(Calc_en)
+
++ v(mem0_1)  v(memB0_1)
++ v(mem1_1)  v(memB1_1)
++ v(mem2_1)  v(memB2_1)
++ v(mem3_1)  v(memB3_1)
+
++ v(mem0_2)  v(memB0_2)
++ v(mem1_2)  v(memB1_2)
++ v(mem2_2)  v(memB2_2)
++ v(mem3_2)  v(memB3_2)
++ v(mem0_32)
++ v(mem0_33)
++ v(mem0_34)
++ v(mem0_35)
++ v(mem0_36)
+
++ v(mem0_3)  v(memB0_3)
++ v(mem1_3)  v(memB1_3)
++ v(mem2_3)  v(memB2_3)
++ v(mem3_3)  v(memB3_3)
+
+.include 'Netlist/Alter.cir'
+
+.end

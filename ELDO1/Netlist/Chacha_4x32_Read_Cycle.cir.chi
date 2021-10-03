@@ -1,0 +1,23 @@
+  Run on edatools-server2 (Linux 3.10.0-1160.15.2.el7.x86_64)
+
+-----------| System Information |---------------
+
+*** User  : iiitd
+*** OS    : Red Hat Enterprise Linux Server release 7.9 (Maipo) [VCO = aol]
+*** CPU   :
+    Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+    Number of physical processors     : 2
+    Hyper-Threading Technology        : enabled
+    Number of cpu cores               : 32
+    Number of logical processors      : 64
+*** Freq  : 3559.155MHz
+*** Cache : 22528 KB
+*** MEM   : 131487172 kB
+*** Date  : Mon May 24 11:23:39 2021
+
+*** Eldo VERSION : ELDO 2018.2 (64 bits) Thu May 31 15:49:36 GMT 2018
+
+/mentor2018/amsv/aol/bin/eldo_64.exe -use_proc ALL -i Chacha_4x32_Read_Cycle.cir
+
+ERROR 1: Unable to open file Chacha_4x32_Read_Cycle.cir
++   No such file or directory

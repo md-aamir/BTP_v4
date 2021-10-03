@@ -1,0 +1,86 @@
+//###########################################################
+//# ELDO 2018.2 (64 bits) - Saved Window File
+//# Released Thu May 31 15:49:36 GMT 2018
+//#
+//# Note: This is an auto-generated file.
+//#
+//# Any edits that you make may cause the restore of
+//# this window to fail - EDIT AT YOUR OWN RISK
+//###########################################################
+
+
+// ===== Open new window =====
+OPEn WIndow -POSition 0 0 -MAXimized
+
+// ===== Create row #1 =====
+ADD WAveform  <Chacha_4x32_Read_Cycle/TRAN>I(V0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(CLK) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(PRECH) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(RWL1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(RWL0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(RWL_EN) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(ROW0SEL) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(ROW1SEL) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(ROW2SEL) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(ROW3SEL) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WL0_SEL) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WL1_SEL) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WL2_SEL) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WL3_SEL) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WBL0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WBLB0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(RBL0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(RBLB0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(SOUT0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(SOUTB0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WRDV_IN0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(SAEN) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WWL1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WWL0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WWL_EN) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(WR_EN0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(W_EN) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(IN0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(IN1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(IN2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(IN3) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(IN4) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM0_0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB0_0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM1_0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB1_0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM2_0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB2_0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM3_0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB3_0) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(CALC_EN) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM0_1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB0_1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM1_1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB1_1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM2_1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB2_1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM3_1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB3_1) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM0_2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB0_2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM1_2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB1_2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM2_2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB2_2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM3_2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB3_2) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM0_3) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB0_3) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM1_3) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB1_3) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM2_3) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB2_3) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEM3_3) 
+ADD WAveform -Row 1 <Chacha_4x32_Read_Cycle/TRAN>V(MEMB3_3) 
+
+// ===== Set axis zero levels  =====
+SET AXis Properties -Axis Y1 -Row 1 -zerolevel on
+
+// ===== Format rows =====
+SET ROw Height -All -MAX

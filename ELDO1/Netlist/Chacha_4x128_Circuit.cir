@@ -1,0 +1,183 @@
+**** Circuit Initialization
+*Wrdv_inxx  ,write1 are useless
+*w_en wr_en0  are shot
+
+
+
+XCol2 Calc_en Cout0 
++ IN32 IN33 IN34 IN35 IN36 IN37 IN38 IN39 IN40 IN41 IN42 IN43 IN44 IN45 IN46 
++ IN47 IN48 IN49 IN50 IN51 IN52 IN53 IN54 IN55 IN56 IN57 IN58 IN59 IN60 IN61
++ IN62 IN63
+
++ IN64 IN65 IN66 IN67 IN68 IN69 IN70 IN71 IN72 IN73 IN74 IN75 IN76 IN77 IN78
++ IN79 IN80 IN81 IN82 IN83 IN84 IN85 IN86 IN87 IN88 IN89 IN90 IN91 IN92 IN93
++ IN94 IN95
+
++ IN96  IN97  IN98  IN99  IN100 IN101 IN102 IN103 IN104 IN105 IN106 IN107 
++ IN108 IN109 IN110 IN111 IN112 IN113 IN114 IN115 IN116 IN117 IN118 IN119
++ IN120 IN121 IN122 IN123 IN124 IN125 IN126 IN127 
+
++ IN0 IN1 IN2 IN3 IN4 IN5 IN6 IN7 IN8 IN9 IN10 IN11 IN12 IN13 IN14 IN15 IN16
++ IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 IN25 IN26 IN27 IN28 IN29 IN30 IN31 
+
++ MUX_SEL0 MUX_SEL1 MUX_SEL2 PreCh RBL32 RBL33 RBLB32 RBLB33 Row0sel 
++ Row1sel Row2sel Row3sel SAen Sout32 SoutB32 Vdd WBL32 WBL33 WBLB32 WBLB33 WL0_sel 
++ WL1_sel WL2_sel WL3_sel Wrdv_in_col2 gnd  
+
++ mem0_32 mem0_33 mem0_34 mem0_35 mem0_36 mem0_37 mem0_38 mem0_39 
++ mem0_40 mem0_41 mem0_42 mem0_43 mem0_44 mem0_45 mem0_46 mem0_47 
++ mem0_48 mem0_49 mem0_50 mem0_51 mem0_52 mem0_53 mem0_54 mem0_55 
++ mem0_56 mem0_57 mem0_58 mem0_59 mem0_60 mem0_61 mem0_62 mem0_63 
++ mem1_32 mem1_33 mem1_34 mem1_35 mem1_36 mem1_37 mem1_38 mem1_39 
++ mem1_40 mem1_41 mem1_42 mem1_43 mem1_44 mem1_45 mem1_46 mem1_47 
++ mem1_48 mem1_49 mem1_50 mem1_51 mem1_52 mem1_53 mem1_54 mem1_55 
++ mem1_56 mem1_57 mem1_58 mem1_59 mem1_60 mem1_61 mem1_62 mem1_63 
++ mem2_32 mem2_33 mem2_34 mem2_35 mem2_36 mem2_37 mem2_38 mem2_39 
++ mem2_40 mem2_41 mem2_42 mem2_43 mem2_44 mem2_45 mem2_46 mem2_47 
++ mem2_48 mem2_49 mem2_50 mem2_51 mem2_52 mem2_53 mem2_54 mem2_55 
++ mem2_56 mem2_57 mem2_58 mem2_59 mem2_60 mem2_61 mem2_62 mem2_63 
++ mem3_32 mem3_33 mem3_34 mem3_35 mem3_36 mem3_37 mem3_38 mem3_39 
++ mem3_40 mem3_41 mem3_42 mem3_43 mem3_44 mem3_45 mem3_46 mem3_47 
++ mem3_48 mem3_49 mem3_50 mem3_51 mem3_52 mem3_53 mem3_54 mem3_55 
++ mem3_56 mem3_57 mem3_58 mem3_59 mem3_60 mem3_61 mem3_62 mem3_63 
+
++ memB0_32 memB0_33 memB0_34 memB0_35 memB0_36 memB0_37 memB0_38 memB0_39 
++ memB0_40 memB0_41 memB0_42 memB0_43 memB0_44 memB0_45 memB0_46 memB0_47 
++ memB0_48 memB0_49 memB0_50 memB0_51 memB0_52 memB0_53 memB0_54 memB0_55 
++ memB0_56 memB0_57 memB0_58 memB0_59 memB0_60 memB0_61 memB0_62 memB0_63 
++ memB1_32 memB1_33 memB1_34 memB1_35 memB1_36 memB1_37 memB1_38 memB1_39 
++ memB1_40 memB1_41 memB1_42 memB1_43 memB1_44 memB1_45 memB1_46 memB1_47 
++ memB1_48 memB1_49 memB1_50 memB1_51 memB1_52 memB1_53 memB1_54 memB1_55 
++ memB1_56 memB1_57 memB1_58 memB1_59 memB1_60 memB1_61 memB1_62 memB1_63 
++ memB2_32 memB2_33 memB2_34 memB2_35 memB2_36 memB2_37 memB2_38 memB2_39 
++ memB2_40 memB2_41 memB2_42 memB2_43 memB2_44 memB2_45 memB2_46 memB2_47 
++ memB2_48 memB2_49 memB2_50 memB2_51 memB2_52 memB2_53 memB2_54 memB2_55 
++ memB2_56 memB2_57 memB2_58 memB2_59 memB2_60 memB2_61 memB2_62 memB2_63 
++ memB3_32 memB3_33 memB3_34 memB3_35 memB3_36 memB3_37 memB3_38 memB3_39 
++ memB3_40 memB3_41 memB3_42 memB3_43 memB3_44 memB3_45 memB3_46 memB3_47 
++ memB3_48 memB3_49 memB3_50 memB3_51 memB3_52 memB3_53 memB3_54 memB3_55 
++ memB3_56 memB3_57 memB3_58 memB3_59 memB3_60 memB3_61 memB3_62 memB3_63 
++ w_en wr_en0 write12 temp
+
+
+
+
+
+
+XCol3 Calc_en Cout1 
+
++ IN64 IN65 IN66 IN67 IN68 IN69 IN70 IN71 IN72 IN73 IN74 IN75 IN76 IN77 IN78
++ IN79 IN80 IN81 IN82 IN83 IN84 IN85 IN86 IN87 IN88 IN89 IN90 IN91 IN92 IN93
++ IN94 IN95
+	
++ IN96  IN97  IN98  IN99  IN100 IN101 IN102 IN103 IN104 IN105 IN106 IN107 
++ IN108 IN109 IN110 IN111 IN112 IN113 IN114 IN115 IN116 IN117 IN118 IN119
++ IN120 IN121 IN122 IN123 IN124 IN125 IN126 IN127 
+
+
++ IN0 IN1 IN2 IN3 IN4 IN5 IN6 IN7 IN8 IN9 IN10 IN11 IN12 IN13 IN14 IN15 IN16
++ IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 IN25 IN26 IN27 IN28 IN29 IN30 IN31 
+
++ IN32 IN33 IN34 IN35 IN36 IN37 IN38 IN39 IN40 IN41 IN42 IN43 IN44 IN45 IN46 
++ IN47 IN48 IN49 IN50 IN51 IN52 IN53 IN54 IN55 IN56 IN57 IN58 IN59 IN60 IN61
++ IN62 IN63
+
+
++ MUX_SEL0 MUX_SEL1 MUX_SEL2 PreCh RBL64 RBL65 RBLB64 RBLB65 Row0sel 
++ Row1sel Row2sel Row3sel SAen Sout64 SoutB64 Vdd WBL64 WBL65 WBLB64 WBLB65 WL0_sel 
++ WL1_sel WL2_sel WL3_sel Wrdv_in_col3 gnd 
+
++ mem0_64 mem0_65 mem0_66 mem0_67 mem0_68 mem0_69 mem0_70 mem0_71 
++ mem0_72 mem0_73 mem0_74 mem0_75 mem0_76 mem0_77 mem0_78 mem0_79 
++ mem0_80 mem0_81 mem0_82 mem0_83 mem0_84 mem0_85 mem0_86 mem0_87 
++ mem0_88 mem0_89 mem0_90 mem0_91 mem0_92 mem0_93 mem0_94 mem0_95 
++ mem1_64 mem1_65 mem1_66 mem1_67 mem1_68 mem1_69 mem1_70 mem1_71 
++ mem1_72 mem1_73 mem1_74 mem1_75 mem1_76 mem1_77 mem1_78 mem1_79 
++ mem1_80 mem1_81 mem1_82 mem1_83 mem1_84 mem1_85 mem1_86 mem1_87 
++ mem1_88 mem1_89 mem1_90 mem1_91 mem1_92 mem1_93 mem1_94 mem1_95 
++ mem2_64 mem2_65 mem2_66 mem2_67 mem2_68 mem2_69 mem2_70 mem2_71 
++ mem2_72 mem2_73 mem2_74 mem2_75 mem2_76 mem2_77 mem2_78 mem2_79 
++ mem2_80 mem2_81 mem2_82 mem2_83 mem2_84 mem2_85 mem2_86 mem2_87 
++ mem2_88 mem2_89 mem2_90 mem2_91 mem2_92 mem2_93 mem2_94 mem2_95 
++ mem3_64 mem3_65 mem3_66 mem3_67 mem3_68 mem3_69 mem3_70 mem3_71 
++ mem3_72 mem3_73 mem3_74 mem3_75 mem3_76 mem3_77 mem3_78 mem3_79 
++ mem3_80 mem3_81 mem3_82 mem3_83 mem3_84 mem3_85 mem3_86 mem3_87 
++ mem3_88 mem3_89 mem3_90 mem3_91 mem3_92 mem3_93 mem3_94 mem3_95 
+
++ memB0_64 memB0_65 memB0_66 memB0_67 memB0_68 memB0_69 memB0_70 memB0_71 
++ memB0_72 memB0_73 memB0_74 memB0_75 memB0_76 memB0_77 memB0_78 memB0_79 
++ memB0_80 memB0_81 memB0_82 memB0_83 memB0_84 memB0_85 memB0_86 memB0_87 
++ memB0_88 memB0_89 memB0_90 memB0_91 memB0_92 memB0_93 memB0_94 memB0_95 
++ memB1_64 memB1_65 memB1_66 memB1_67 memB1_68 memB1_69 memB1_70 memB1_71 
++ memB1_72 memB1_73 memB1_74 memB1_75 memB1_76 memB1_77 memB1_78 memB1_79 
++ memB1_80 memB1_81 memB1_82 memB1_83 memB1_84 memB1_85 memB1_86 memB1_87 
++ memB1_88 memB1_89 memB1_90 memB1_91 memB1_92 memB1_93 memB1_94 memB1_95 
++ memB2_64 memB2_65 memB2_66 memB2_67 memB2_68 memB2_69 memB2_70 memB2_71 
++ memB2_72 memB2_73 memB2_74 memB2_75 memB2_76 memB2_77 memB2_78 memB2_79 
++ memB2_80 memB2_81 memB2_82 memB2_83 memB2_84 memB2_85 memB2_86 memB2_87 
++ memB2_88 memB2_89 memB2_90 memB2_91 memB2_92 memB2_93 memB2_94 memB2_95 
++ memB3_64 memB3_65 memB3_66 memB3_67 memB3_68 memB3_69 memB3_70 memB3_71 
++ memB3_72 memB3_73 memB3_74 memB3_75 memB3_76 memB3_77 memB3_78 memB3_79 
++ memB3_80 memB3_81 memB3_82 memB3_83 memB3_84 memB3_85 memB3_86 memB3_87 
++ memB3_88 memB3_89 memB3_90 memB3_91 memB3_92 memB3_93 memB3_94 memB3_95 
++ w_en wr_en0 write13 temp
+
+
+
+XCol4 Calc_en Cout2 
+
++ IN96  IN97  IN98  IN99  IN100 IN101 IN102 IN103 IN104 IN105 IN106 IN107 
++ IN108 IN109 IN110 IN111 IN112 IN113 IN114 IN115 IN116 IN117 IN118 IN119
++ IN120 IN121 IN122 IN123 IN124 IN125 IN126 IN127 
+
++ IN0 IN1 IN2 IN3 IN4 IN5 IN6 IN7 IN8 IN9 IN10 IN11 IN12 IN13 IN14 IN15 IN16
++ IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 IN25 IN26 IN27 IN28 IN29 IN30 IN31 
+
++ IN32 IN33 IN34 IN35 IN36 IN37 IN38 IN39 IN40 IN41 IN42 IN43 IN44 IN45 IN46 
++ IN47 IN48 IN49 IN50 IN51 IN52 IN53 IN54 IN55 IN56 IN57 IN58 IN59 IN60 IN61
++ IN62 IN63
+
++ IN64 IN65 IN66 IN67 IN68 IN69 IN70 IN71 IN72 IN73 IN74 IN75 IN76 IN77 IN78
++ IN79 IN80 IN81 IN82 IN83 IN84 IN85 IN86 IN87 IN88 IN89 IN90 IN91 IN92 IN93
++ IN94 IN95
+
+
++ MUX_SEL0 MUX_SEL1 MUX_SEL2 PreCh RBL96 RBL97 RBLB96 RBLB97 Row0sel 
++ Row1sel Row2sel Row3sel SAen Sout96 SoutB96 Vdd WBL96 WBL97 WBLB96 WBLB97 WL0_sel 
++ WL1_sel WL2_sel WL3_sel Wrdv_in_col4 gnd 
+
++ mem0_96 mem0_97 mem0_98 mem0_99 mem0_100 mem0_101 mem0_102 mem0_103 
++ mem0_104 mem0_105 mem0_106 mem0_107 mem0_108 mem0_109 mem0_110 mem0_111 
++ mem0_112 mem0_113 mem0_114 mem0_115 mem0_116 mem0_117 mem0_118 mem0_119 
++ mem0_120 mem0_121 mem0_122 mem0_123 mem0_124 mem0_125 mem0_126 mem0_127 
++ mem1_96 mem1_97 mem1_98 mem1_99 mem1_100 mem1_101 mem1_102 mem1_103 
++ mem1_104 mem1_105 mem1_106 mem1_107 mem1_108 mem1_109 mem1_110 mem1_111 
++ mem1_112 mem1_113 mem1_114 mem1_115 mem1_116 mem1_117 mem1_118 mem1_119 
++ mem1_120 mem1_121 mem1_122 mem1_123 mem1_124 mem1_125 mem1_126 mem1_127 
++ mem2_96 mem2_97 mem2_98 mem2_99 mem2_100 mem2_101 mem2_102 mem2_103 
++ mem2_104 mem2_105 mem2_106 mem2_107 mem2_108 mem2_109 mem2_110 mem2_111 
++ mem2_112 mem2_113 mem2_114 mem2_115 mem2_116 mem2_117 mem2_118 mem2_119 
++ mem2_120 mem2_121 mem2_122 mem2_123 mem2_124 mem2_125 mem2_126 mem2_127 
++ mem3_96 mem3_97 mem3_98 mem3_99 mem3_100 mem3_101 mem3_102 mem3_103 
++ mem3_104 mem3_105 mem3_106 mem3_107 mem3_108 mem3_109 mem3_110 mem3_111 
++ mem3_112 mem3_113 mem3_114 mem3_115 mem3_116 mem3_117 mem3_118 mem3_119 
++ mem3_120 mem3_121 mem3_122 mem3_123 mem3_124 mem3_125 mem3_126 mem3_127 
+
++ memB0_96 memB0_97 memB0_98 memB0_99 memB0_100 memB0_101 memB0_102 memB0_103 
++ memB0_104 memB0_105 memB0_106 memB0_107 memB0_108 memB0_109 memB0_110 memB0_111 
++ memB0_112 memB0_113 memB0_114 memB0_115 memB0_116 memB0_117 memB0_118 memB0_119 
++ memB0_120 memB0_121 memB0_122 memB0_123 memB0_124 memB0_125 memB0_126 memB0_127 
++ memB1_96 memB1_97 memB1_98 memB1_99 memB1_100 memB1_101 memB1_102 memB1_103 
++ memB1_104 memB1_105 memB1_106 memB1_107 memB1_108 memB1_109 memB1_110 memB1_111 
++ memB1_112 memB1_113 memB1_114 memB1_115 memB1_116 memB1_117 memB1_118 memB1_119 
++ memB1_120 memB1_121 memB1_122 memB1_123 memB1_124 memB1_125 memB1_126 memB1_127 
++ memB2_96 memB2_97 memB2_98 memB2_99 memB2_100 memB2_101 memB2_102 memB2_103 
++ memB2_104 memB2_105 memB2_106 memB2_107 memB2_108 memB2_109 memB2_110 memB2_111 
++ memB2_112 memB2_113 memB2_114 memB2_115 memB2_116 memB2_117 memB2_118 memB2_119 
++ memB2_120 memB2_121 memB2_122 memB2_123 memB2_124 memB2_125 memB2_126 memB2_127 
++ memB3_96 memB3_97 memB3_98 memB3_99 memB3_100 memB3_101 memB3_102 memB3_103 
++ memB3_104 memB3_105 memB3_106 memB3_107 memB3_108 memB3_109 memB3_110 memB3_111 
++ memB3_112 memB3_113 memB3_114 memB3_115 memB3_116 memB3_117 memB3_118 memB3_119 
++ memB3_120 memB3_121 memB3_122 memB3_123 memB3_124 memB3_125 memB3_126 memB3_127 
+
++ w_en wr_en0 write14 temp
